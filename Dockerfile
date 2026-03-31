@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y wget && apt-get clean
 # 2. Download and install FORM 5.0
 RUN wget https://github.com/form-dev/form/releases/download/v5.0.0/form-5.0.0-x86_64-linux.tar.gz && \
     tar -xzvf form-5.0.0-x86_64-linux.tar.gz && \
-    mv form/form /usr/local/bin/form && \
-    mv form/tform /usr/local/bin/tform && \
+    mv form-5.0.0-x86_64-linux/form /usr/local/bin/form && \
+    mv form-5.0.0-x86_64-linux/tform /usr/local/bin/tform && \
     chmod +x /usr/local/bin/form /usr/local/bin/tform && \
     rm -rf form-5.0.0-x86_64-linux.tar.gz form/
 
