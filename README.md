@@ -1,6 +1,6 @@
-# HEP-FORM: Particle Physics Derivations
+# FORM Particle Physics
 
-An interactive repository for calculating Feynman amplitudes using **FORM 5.0**.
+Simple examples of Feynman amplitudes using **FORM 5.0**
 
 Click here to browse all interactive examples:
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/tree/main/Notebooks/main)
