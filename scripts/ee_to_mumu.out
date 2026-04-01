@@ -1,0 +1,95 @@
+FORM 5.0.0 (Jan 27 2026, v5.0.0)                 Run: Wed Apr  1 20:24:59 2026
+    * Process: e+ e- -> mu+ mu-
+    Indices mu, nu, mu1, nu1;
+    Symbols s, t, u, e, pi, alpha, costh;
+    Vectors p1, p2, p3, p4;
+    
+    * Amplitude Squared (Diagrammatica conventions)
+    Local Msq = (e^4 / s^2) * d_(mu, mu1) * d_(nu, nu1) * (g_(1, p2) * g_(1, mu) * g
+    _(1, p1) * g_(1, nu)) *
+        (g_(2, p3) * g_(2, mu1) * g_(2, p4) * g_(2, nu1));
+    
+    * Differential cross section formula
+    Local dSigma = (1 / (64 * pi^2 * s)) * Msq;
+    
+    trace4, 1;
+    trace4, 2;
+    .sort 
+
+Time =       0.00 sec    Generated terms =          2
+             Msq         Terms in output =          2
+                         Bytes used      =        140
+
+Time =       0.00 sec    Generated terms =          2
+          dSigma         Terms in output =          2
+                         Bytes used      =        156
+    Print Msq; 
+    .sort
+
+Time =       0.00 sec    Generated terms =          2
+             Msq         Terms in output =          2
+                         Bytes used      =        140
+
+Time =       0.00 sec    Generated terms =          2
+          dSigma         Terms in output =          2
+                         Bytes used      =        156
+
+   Msq =
+      32*p1.p3*p2.p4*s^-2*e^4 + 32*p1.p4*p2.p3*s^-2*e^4;
+
+    contract;
+    .sort
+
+Time =       0.00 sec    Generated terms =          2
+             Msq         Terms in output =          2
+                         Bytes used      =        140
+
+Time =       0.00 sec    Generated terms =          2
+          dSigma         Terms in output =          2
+                         Bytes used      =        156
+    Print Msq;
+    .sort
+
+Time =       0.00 sec    Generated terms =          2
+             Msq         Terms in output =          2
+                         Bytes used      =        140
+
+Time =       0.00 sec    Generated terms =          2
+          dSigma         Terms in output =          2
+                         Bytes used      =        156
+
+   Msq =
+      32*p1.p3*p2.p4*s^-2*e^4 + 32*p1.p4*p2.p3*s^-2*e^4;
+
+    
+    * Physics & Normalization
+    id e^4 = 16 * pi^2 * alpha^2;
+    * Spin averaging (1/2 * 1/2)
+    multiply 1/4; 
+    
+    * 3. Kinematics (Massless Limit)
+    id p1.p1 = 0; id p2.p2 = 0; id p3.p3 = 0; id p4.p4 = 0;
+    id p1.p2 = s/2; id p3.p4 = s/2;
+    id p1.p3 = -t/2; id p2.p4 = -t/2;
+    id p1.p4 = -u/2; id p2.p3 = -u/2;
+    
+    * 4. Angular dependency
+    id t = -s/2 * (1 - costh);
+    id u = -s/2 * (1 + costh);
+    
+    bracket alpha, s;
+    Print dSigma;
+    .end
+
+Time =       0.00 sec    Generated terms =          6
+             Msq         Terms in output =          2
+                         Bytes used      =        104
+
+Time =       0.00 sec    Generated terms =          6
+          dSigma         Terms in output =          2
+                         Bytes used      =         92
+
+   dSigma =
+       + s^-1*alpha^2 * ( 1/4 + 1/4*costh^2 );
+
+  0.00 sec out of 0.00 sec
