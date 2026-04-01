@@ -12,7 +12,8 @@ Click here to browse all interactive examples:
 
 1. **Metric:** Euclidean $\delta_{\mu\nu} = (+,+,+,+)$.
 2. **Imaginary Energy:** $p_4 = iE$, such that $p^2 = \vec{p}^2 - E^2 = -m^2$.
-3. **Mandelstam Variables:** - $s = -(p_1 + p_2)^2$
+3. **Mandelstam Variables:** 
+   - $s = -(p_1 + p_2)^2$
    - $t = -(p_1 - p_3)^2$
    - $u = -(p_1 - p_4)^2$
 4. **Dirac Matrices:** $\{\gamma_\mu, \gamma_\nu\} = 2\delta_{\mu\nu}$.
@@ -24,5 +25,3 @@ Click here to browse all interactive examples:
 - `/scripts`: Raw FORM 5.0 files generated from notebooks.
 - `/docs`: HTML documentation (MathJax enabled).
 
-## How to use
-Click the **Launch Binder** button above to open the interactive lab. You can modify the FORM code in the notebook cells and re-run them to see how the trace results change.
