@@ -3,11 +3,10 @@
 An interactive repository for calculating Feynman amplitudes using **FORM 5.0**.
 
 Click here to browse all interactive examples:
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/HEAD?labpath=notebooks)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/main?urlpath=tree/notebooks)
 
 ### Specific Examples
-* **[e⁺e⁻ → μ⁺μ⁻ Scattering](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/HEAD?labpath=notebooks%2Fee_to_mumu.ipynb)**
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/HEAD?labpath=notebooks%2Fee_to_mumu.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/AnChristos/FORM_Examples/main?pathname=notebooks/ee_to_mumu.ipynb)
 
 ## Diagrammatica (Veltman) Conventions
 
