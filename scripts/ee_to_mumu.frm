@@ -4,7 +4,7 @@
 Indices mu, nu, mu1, nu1;
 
 * Kinematic variables
-Symbols s, t, u, costh, beta;
+Symbols s, t, u;
 
 * Physical constants
 Symbols e, pi, alpha;

@@ -1,11 +1,11 @@
-FORM 5.0.0 (Jan 27 2026, v5.0.0)                 Run: Sun Apr  5 04:32:24 2026
+FORM 5.0.0 (Jan 27 2026, v5.0.0)                 Run: Sun Apr  5 04:35:46 2026
     * Process: e+ e- -> mu+ mu-
     
     * Indices 
     Indices mu, nu, mu1, nu1;
     
     * Kinematic variables
-    Symbols s, t, u, costh, beta;
+    Symbols s, t, u;
     
     * Physical constants
     Symbols e, pi, alpha;

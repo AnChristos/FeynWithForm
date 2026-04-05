@@ -53,7 +53,7 @@ def get_form_expr(filename="temp", var_name="dSigma"):
     
     # target the final indented output: var_name = ... ;
     pattern = rf'\n\s+{var_name}\s*=\s*(.*?);'
-     # re.DOTALL ensures we capture expressions spanning multiple lines
+     # re.DOTALL capture expressions spanning multiple lines
     match = re.search(pattern, content, re.DOTALL)
     
     if match:
@@ -71,8 +71,8 @@ def capture_physics_expr(filename, var_name):
     raw_str = get_form_expr(filename, var_name)
     if not raw_str:
         return None 
-    # 1. Remove newlines and extra spaces for a clean string
+    # Remove newlines and extra spaces
     clean_str = " ".join(raw_str.split())
-    # 2. Convert FORM power syntax (s^-1 -> s**-1)
+    # Convert FORM power syntax 
     py_expr = clean_str.replace('^', '**')
     return py_expr
