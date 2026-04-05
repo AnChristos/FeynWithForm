@@ -12,18 +12,14 @@ Symbols e, pi, alpha;
 * Four-vectors
 Vectors p1, p2, p3, p4;
 
-
-
-
 * ------------------------------------------------------------------
 *  Matrix Element Squared for e+(p2) e-(p1) -> mu+(p3) mu-(p4)
 * (|M|^2) = (e^4 / s^2) * g^{mu rho} * g^{nu sigma} *
 *            Tr[slash(p2) * gamma_mu  * slash(p1) * gamma_nu ] *
 *            Tr[slash(p3) * gamma_rho * slash(p4) * gamma_sigma]
-*  FORM / Diagrammatica conventions
+*  FORM conventions (see also Diagrammatica)
 *  g_ is gamma matrix
 *  g_(1,...) is Electron current ; g_(2,...) is Muon current
-*  FORM uses the Pauli notation. 
 * ------------------------------------------------------------------ 
 Local Msq = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) * 
             (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, nu)) * 
