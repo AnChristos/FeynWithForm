@@ -12,7 +12,7 @@ Simple examples of Feynman amplitudes using **FORM 5.0**
 - Manual https://form-dev.github.io/form-docs/stable/manual/
 
 ## Requirements
-- We assume form is available (a command ``form5'' exists)
+- We assume form is available (a command ``form'' exists)
 - Python
     - jupyterlab
     - numpy

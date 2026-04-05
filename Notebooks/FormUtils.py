@@ -13,7 +13,7 @@ script_dir = os.path.abspath(os.path.join(notebook_dir, '..', 'scripts'))
 os.makedirs(script_dir, exist_ok=True)
 
 @register_cell_magic
-def form5(line, cell):
+def pyForm(line, cell):
     filename = line.strip() if line else "temp"
     frm_path = os.path.join(script_dir, f"{filename}.frm")
     out_path = os.path.join(script_dir, f"{filename}.out")
