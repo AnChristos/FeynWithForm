@@ -23,7 +23,7 @@ Symbols s, t, u;
 * Physical constants
 Symbols e, pi, alpha, Mass;
 
-* Symbols three momenta ratio in CM
+* Three momenta ratio in CM
 Symbols pfInOutRatio;
 
 * Four-vectors
@@ -32,16 +32,17 @@ Vectors p1, p2, p3, p4;
 * ------------------------------------------------------------------
 * Matrix Element Squared for e+(p2) e-(p1) -> mu+(p3) mu-(p4)
 * Muons are massive.
-* (|M|^2) = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) * 
-* Tr[slash(p2) * gamma_mu * slash(p1) * gamma_nu] *
-* Tr[(slash(p3) + Mmuon) * gamma_rho * (slash(p4) - mMuon) * gamma_sigma]
+* (|M|^2) = (e^4 / s^2) * d_(mu, nu) * d_(rho, sigma) * 
+* Tr[slash(p2) * gamma_mu * slash(p1) * gamma_sigma] *
+* Tr[(slash(p3) + Mmuon) * gamma_nu * (slash(p4) - mMuon) * gamma_sigma]
 * g_(1,...) is Electron current ; g_(2,...) is Muon current
+* Photon Propagator contracts one electron vertex with a Muon one
 * ------------------------------------------------------------------
 
 
-Local Msq = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) * 
-            (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, nu)) * 
-            (g_(2, p3) + Mass*gi_(2)) * g_(2, rho) * (g_(2, p4) - Mass*gi_(2)) * g_(2, sigma);
+Local Msq = (e^4 / s^2) * d_(mu, nu) * d_(rho, sigma) * 
+            (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, rho)) * 
+            (g_(2, p3) + Mass*gi_(2)) * g_(2, nu) * (g_(2, p4) - Mass*gi_(2)) * g_(2, sigma);
 
 .sort
 trace4, 1;
