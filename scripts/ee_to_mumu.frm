@@ -21,7 +21,7 @@ Indices mu, nu, rho, sigma;
 Symbols s, t, u;
 
 * Physical constants
-Symbols e, pi, alpha, mMuon;
+Symbols e, pi, alpha, Mass;
 
 * Symbols three momenta ratio in CM
 Symbols pfInOutRatio;
@@ -41,7 +41,7 @@ Vectors p1, p2, p3, p4;
 
 Local Msq = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) * 
             (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, nu)) * 
-            (g_(2, p3) + mMuon*gi_(2)) * g_(2, rho) * (g_(2, p4) - mMuon*gi_(2)) * g_(2, sigma);
+            (g_(2, p3) + Mass*gi_(2)) * g_(2, rho) * (g_(2, p4) - Mass*gi_(2)) * g_(2, sigma);
 
 * Differential cross section formula
 Local dSigma = (1 / (64 * pi^2 * s)) * pfInOutRatio * Msq;
@@ -69,8 +69,8 @@ repeat;
 
     id p1.p1 = 0;
     id p2.p2 = 0;
-    id p3.p3 = mMuon^2;
-    id p4.p4 = mMuon^2;
+    id p3.p3 = Mass^2;
+    id p4.p4 = Mass^2;
 
     id p1.p2 = (s - p1.p1 - p2.p2)/2;
     id p3.p4 = (s - p3.p3 - p4.p4)/2;
