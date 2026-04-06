@@ -42,9 +42,6 @@ Local Msq = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) *
             (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, nu)) * 
             (g_(2, p3) * g_(2, rho) * g_(2, p4) * g_(2, sigma));
 
-* Differential cross section formula
-Local dSigma = (1 / (64 * pi^2 * s)) * pfInOutRatio * Msq;
-
 .sort
 trace4, 1;
 trace4, 2;
@@ -59,7 +56,7 @@ id e^4 = 16 * pi^2 * alpha^2;
 * Spin averaging (1/2 * 1/2)
 multiply 1/4; 
 
-* 3. Kinematics 
+* 3. Mandelstam
 * Repeat substitutions as needed.
 * We form all Mandelstam 
 * Note that here what happens
@@ -83,11 +80,14 @@ repeat;
     id p1.p4 = (p1.p1 + p4.p4 - u)/2;
     id p2.p3 = (p2.p2 + p3.p3 - u)/2;
 endrepeat;
-
 .sort
 
-bracket alpha, s, pfInOutRatio;
+* Differential cross section 
+Local dSigma =  (1 / (64 * pi^2 * s)) * pfInOutRatio * Msq;
+
+bracket alpha, s,pfInOutRatio;
 factorize;
 Print Msq;
 Print dSigma;
+
 .end
