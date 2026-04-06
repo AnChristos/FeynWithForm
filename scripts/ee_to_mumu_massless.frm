@@ -26,6 +26,10 @@ Symbols e, pi, alpha;
 * Four-vectors
 Vectors p1, p2, p3, p4;
 
+* Symbols three momenta ratio in CM
+Symbols pfInOutRatio;
+
+
 * ------------------------------------------------------------------
 *  Matrix Element Squared for e+(p2) e-(p1) -> mu+(p3) mu-(p4)
 *  Massless case
@@ -39,7 +43,7 @@ Local Msq = (e^4 / s^2) * d_(mu, rho) * d_(nu, sigma) *
             (g_(2, p3) * g_(2, rho) * g_(2, p4) * g_(2, sigma));
 
 * Differential cross section formula
-Local dSigma = (1 / (64 * pi^2 * s)) * Msq;
+Local dSigma = (1 / (64 * pi^2 * s)) * pfInOutRatio * Msq;
 
 .sort
 trace4, 1;
@@ -82,7 +86,7 @@ endrepeat;
 
 .sort
 
-bracket alpha, s;
+bracket alpha, s, pfInOutRatio;
 Print Msq;
 Print dSigma;
 .end

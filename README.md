@@ -18,3 +18,13 @@ Simple examples of Feynman amplitudes using **FORM 5.0**
     - numpy
     - matplotlib 
 
+## Description of pipeline
+- We want to be able to run ``form``. Ideally from inside the notebook.
+- Assume a notebook ``name.ipynb``
+    - We import the utils in the first cell
+    - At the start of second cell  we use ``%%pyForm name``.
+    We then put the actual ``form`` code in the cell
+    - Running the cell we  get a ``name.frm`` and ``name.out`` 
+    in the scripts folder.
+    - We the use python to get the line with result 
+    and do further manipulations.
