@@ -5,7 +5,7 @@ This document outlines the symbolic notation and computational logic used in FOR
 
 ## References 
 
-* **FORM **: J.A.M. Vermaseren, *"New features of FORM"* (math-ph/0010025)
+* **FORM**: J.A.M. Vermaseren, *"New features of FORM"* (math-ph/0010025)
 * **Textbook**: *Diagrammatica: The Path to Feynman Diagrams* by Martinus Veltman
 * The symbolic manipulation in this project is handled by the `squareamplitude` procedure. Mondified the original by Jos Vermaseren (NIKHEF)
 
