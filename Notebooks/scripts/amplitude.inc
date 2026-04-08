@@ -2,6 +2,7 @@
 * amplitude.h
 * Core Procedure: squareamplitude
 * Original Author: Jos Vermaseren (NIKHEF)
+* See also : J.A.M.Vermaseren "New features of FORM" math-ph/0010025
 *
 * Description:
 * A general-purpose FORM procedure for squaring Feynman amplitudes, 
