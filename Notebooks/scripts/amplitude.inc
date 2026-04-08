@@ -1,19 +1,19 @@
 *-------------------------------------------------------------------------*
-* amplitude.h
-* Core Procedure: squareamplitude
+* amplitude.inc
 * Original Author: Jos Vermaseren (NIKHEF)
 * See also : J.A.M.Vermaseren "New features of FORM" math-ph/0010025
 *
+* Core Procedure: squareamplitude 
 * Description:
-* A general-purpose FORM procedure for squaring Feynman amplitudes, 
+* FORM procedure for squaring Feynman amplitudes, 
 * performing spin sums, and evaluating Dirac traces.
 *-------------------------------------------------------------------------*
 
 AutoDeclare Index i,j,k;
 AutoDeclare Symbol m,x;
 AutoDeclare Vector p,q;
-Vector q,pe,pp,pa,pb,q1,q2,p1,...,p10;
-CF  UB,U,VB,V,g,gstring,e;
+Vector q,q1,q2,p1,...,p10;
+CF  UB,U,VB,V,g,gstring,eps;
 CF  fprop,phprop,gprop,prop;
 Index k5=0, k6=0, k7=0;
 *
@@ -83,7 +83,7 @@ L   `Mat' = `Amp'*`Amp'C;
 *
 id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
 id  V(i1?,p?,m?)*VB(i2?,p?,m?) = -g(i1,i2,p)+g(i1,i2)*m;
-id  e(j1?,p?)*e(j2?,p?) = -d_(j1,j2);
+id  eps(j1?,p?)*eps(j2?,p?) = -d_(j1,j2);
 *
 *   Propagators
 *

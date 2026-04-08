@@ -1,21 +1,7 @@
 
-*------------------------------------------------------------------
-* The gamma matrices fulfill the relations:
-*    {g_(j1,mu),g_(j1,nu)} = 2 * d_(mu,nu)
-*    [g_(j1,mu),g_(j2,nu)] = 0    j1 not equal to j2.
-* 
-* Dirac Algebra Basis (Bilinear Covariants) :
-*   gi_(j)                : Scalar (Unit matrix)
-*   g_(j,mu)              : Vector
-*   [g_(j,mu),g_(j,nu)]/2 : Tensor
-*   g5_(j)*g_(j,mu)       : Axial-Vector
-*   g5_(j)                : Pseudoscalar
-* ------------------------------------------------------------------
-
 * Process: e+ e- -> mu+ mu- 
 
-* Indices 
-Indices mu, nu, rho, sigma;
+#include amplitude.inc
 
 * Kinematic variables
 Symbols s, t, u;
@@ -26,23 +12,9 @@ Symbols e, pi, alpha, Mass;
 * Three momenta ratio in CM
 Symbols pfInOutRatio;
 
-* Four-vectors
-Vectors p1, p2, p3, p4;
 
-* ------------------------------------------------------------------
-* Matrix Element Squared for e+(p2) e-(p1) -> mu+(p3) mu-(p4)
-* Muons are massive.
-* (|M|^2) = (e^4 / s^2) * d_(mu, nu) * d_(rho, sigma) * 
-* Tr[slash(p2) * gamma_mu * slash(p1) * gamma_sigma] *
-* Tr[(slash(p3) + Mmuon) * gamma_nu * (slash(p4) - mMuon) * gamma_sigma]
-* g_(1,...) is Electron current ; g_(2,...) is Muon current
-* Photon Propagator contracts one electron vertex with a Muon one
-* ------------------------------------------------------------------
-
-
-Local Msq = (e^4 / s^2) * d_(mu, nu) * d_(rho, sigma) * 
-            (g_(1, p2) * g_(1, mu) * g_(1, p1) * g_(1, rho)) * 
-            (g_(2, p3) + Mass*gi_(2)) * g_(2, nu) * (g_(2, p4) - Mass*gi_(2)) * g_(2, sigma);
+Local M = (e^2 / s) * (VB(i1, p2, 0) * g(i1, i2, j1) * U(i2, p1, 0)) * (UB(i3, p3, Mass) * g(i3, i4, j1) * V(i4, p4, Mass));
+#call squareamplitude(M, Msq)
 
 .sort
 trace4, 1;
@@ -67,8 +39,8 @@ repeat;
 
     id p1.p1 = 0;
     id p2.p2 = 0;
-    id p3.p3 = Mass;
-    id p4.p4 = Mass;
+    id p3.p3 = Mass^2;
+    id p4.p4 = Mass^2;
 
     id p1.p2 = (s - p1.p1 - p2.p2)/2;
     id p3.p4 = (s - p3.p3 - p4.p4)/2;
@@ -88,17 +60,13 @@ Local dSigma = (1 / (64 * pi^2 * s)) * pfInOutRatio * Msq;
 .sort
 
 bracket alpha, s, pfInOutRatio;
-* Print and save in Fortran format
-Format Fortran;
-Print Msq;
-Print dSigma;
+* Save
+Format C;
 #write <ee_to_mumu.txt> "%e;", dSigma;
 .sort
-
-* Print in FORM format factorized
+* Print
 Format;
 factorize;
 Print Msq;
 Print dSigma;
-.sort
 .end
