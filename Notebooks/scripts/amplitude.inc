@@ -9,7 +9,7 @@
 * performing spin sums, and evaluating Dirac traces.
 *-------------------------------------------------------------------------*
 
-AutoDeclare Index i,j,k;
+AutoDeclare Index i,mu,k;
 AutoDeclare Symbol m,x;
 AutoDeclare Vector p,q;
 Vector q,q1,q2,p1,...,p10;
@@ -21,7 +21,7 @@ Index k5=0, k6=0, k7=0;
 #procedure squareamplitude(Amp,Mat)
 .sort
 *
-*   We skip everything but Amp. In Amp we look for the highest i and j indices
+*   We skip everything but Amp. In Amp we look for the highest i and mu indices
 *
 Skip;
 NSkip `Amp';
@@ -34,17 +34,17 @@ NSkip `Amp';
             $imax = `i';
     endif;
 #enddo
-#$jmax = 0;
-#do j = 1,20
-    if ( match(g(?a,j`j')) || match(phprop(j`j',?a)) || match(phprop(j?,j`j',?a)) );
-        $jmax = `j';
+#$mumax = 0;
+#do mu = 1,20
+    if ( match(g(?a,mu`mu')) || match(phprop(mu`mu',?a)) || match(phprop(mu?,mu`mu',?a)) );
+        $mumax = `mu';
     endif;
 #enddo
 .sort:amplitude-1;
 *
-*   Just for a check we print the highest i and j indices
+*   Just for a check we print the highest i and mu indices
 *
-#message highest i is i`$imax', highest j is j`$jmax';
+#message highest i is i`$imax', highest mu is mu`$mumax';
 *
 *   Now construct the conjugate
 *
@@ -55,13 +55,13 @@ id  i_ = -i_;
 *   Make a new set of dummy indices above $imax and $jmax.
 *
 Multiply replace_(<i1,i{`$imax'+1}>,...,<i`$imax',i{2*`$imax'}>);
-Multiply replace_(<j1,j{`$jmax'+1}>,...,<j`$jmax',j{2*`$jmax'}>);
+Multiply replace_(<mu1,mu{`$mumax'+1}>,...,<mu`$mumax',mu{2*`$mumax'}>);
 *
 *   Exchange rows and columns
 *
-id  g(i1?,i2?,j?) = g(i2,i1,j);
+id  g(i1?,i2?,mu?) = g(i2,i1,mu);
 id  fprop(i1?,i2?,?a) = fprop(i2,i1,?a);
-id  phprop(j1?,j2?,p?) = phprop(j2,j1,p);
+id  phprop(mu1?,mu2?,p?) = phprop(mu2,mu1,p);
 *
 *   and exchange U and UB, V and VBAR
 *
@@ -83,16 +83,30 @@ L   `Mat' = `Amp'*`Amp'C;
 *
 id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
 id  V(i1?,p?,m?)*VB(i2?,p?,m?) = -g(i1,i2,p)+g(i1,i2)*m;
-id  eps(j1?,p?)*eps(j2?,p?) = -d_(j1,j2);
+id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
 *
 *   Propagators
 *
 id  fprop(i1?,i2?,p?,m?) = (g(i1,i2,p)+g(i1,i2)*m)*prop(p.p-m^2);
-id  phprop(j1?,j2?,q?) = -d_(j1,j2)*prop(q.q);
+id  phprop(mu1?,mu2?,q?) = -d_(mu1,mu2)*prop(q.q);
 *
 *   String the gamma matrices together in traces.
 *
-repeat id g(i1?,i2?,?a)*g(i2?,i3?,?b) = g(i1,i3,?a,?b);
+repeat;
+* Handle:
+* 1. g(i1,i2,?a)*g(i2,i3,?b) -> g(i1,i3,?a,?b)
+* 2. g(i1,i2)*g(i2,i3,?a)    -> g(i1,i3,?a)
+* 3. g(i1,i2)*g(i2,i3)       -> g(i1,i3)
+    id g(i1?,i2?,?a) * g(i2?,i3?,?b) = g(i1,i3,?a,?b);
+
+* Handle  Unit with both indices matching gamma
+    id g(i1?,i2?) * g(i1?,i2?,?a) = g(i1,i1,?a);
+    id g(i1?,i2?) * g(i2?,i1?,?a) = g(i1,i1,?a);
+
+* Trace of identity matrix
+    id g(i1?,i1?) = 4;
+endrepeat;
+
 .sort:amplitude-3;
 Skip;
 NSkip `Mat';

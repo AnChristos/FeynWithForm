@@ -3,7 +3,7 @@ import numpy as np
 def kinematics2To2(sqrt_s, theta, m1=0, m2=0, m3=0, m4=0):
     """
     Calculates s, t, u and the phase space ratio pf/pi 
-    for a 2 -> 2 process in the CM frame.
+    for a  2 -> 2 process in the CM frame.
     """
     s = sqrt_s**2
 

@@ -13,7 +13,7 @@ Symbols e, pi, alpha, Mass;
 Symbols pfInOutRatio;
 
 
-Local M = (e^2 / s) * (VB(i1, p2, 0) * g(i1, i2, j1) * U(i2, p1, 0)) * (UB(i3, p3, Mass) * g(i3, i4, j1) * V(i4, p4, Mass));
+Local M = (e^2 / s) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) * (UB(i3, p3, Mass) * g(i3, i4, mu1) * V(i4, p4, Mass));
 #call squareamplitude(M, Msq)
 
 .sort
