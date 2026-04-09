@@ -1,6 +1,10 @@
 
-* Process: e+ e- -> mu+ mu- (includes Z)
+* Process: e+ e- -> mu+ mu- (EW)
 
+#-
+* Above suppresses extra output
+Off Statistics;
+Off FinalStats;
 
 #include amplitude.inc
 
