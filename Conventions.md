@@ -6,14 +6,19 @@ This document outlines the symbolic notation and computational logic used in FOR
 ## References 
 
 * **FORM**: J.A.M. Vermaseren, *"New features of FORM"* (math-ph/0010025)
-* **Textbook**: *Diagrammatica: The Path to Feynman Diagrams* by Martinus Veltman
-* The symbolic manipulation in this project is handled by the `squareamplitude` procedure. Mondified the original by Jos Vermaseren (NIKHEF)
+* The symbolic manipulation in this project is handled by the `squareamplitude` procedure. 
+  Original by Jos Vermaseren (NIKHEF)
+
+
+## Textbooks
+* *Quarks & Leptons: An Introductory Course to Modern Particle Physics* by Halzen & Martin
+* *Diagrammatica: The Path to Feynman Diagrams* by Martinus Veltman
 
 ---
 
 ## Gamma Matrix and Identity Notation
 
-The procedure uses a custom commuting function `g` to represent Dirac matrices with explicit spinor indices. 
+See also Traces.ipynb 
 
 | Term                     | FORM Notation        | Mathematical Equivalent    |
 | :----------------------- | :------------------- | :------------------------- |
@@ -30,8 +35,7 @@ The procedure uses a custom commuting function `g` to represent Dirac matrices w
 
 ## Spinors and External Lines
 
-Spinors are treated as commuting functions (CF) with the convention:
-
+Spinors convention:
 ```
 Spinor(index, momentum, mass)
 ```
@@ -51,81 +55,27 @@ Propagators include both the numerator structure and the scalar denominator fact
 ### Fermion Propagator
 
 ```
-fprop(i1, i2, p, m)
-```
-
-Implementation:
-
-```
-(g(i1, i2, p) + g(i1, i2) * m) * prop(p.p - m^2)
+fprop(i1, i2, p, m) = (g(i1, i2, p) + g(i1, i2) * m) * prop(p.p - m^2)
 ```
 
 ### Photon Propagator
 
 ```
-phprop(mu1, mu2, q)
-```
-
-Implementation:
-
-```
--d_(mu1, mu2) * prop(q.q)
+phprop(mu1, mu2, q) = -d_(mu1, mu2) * prop(q.q)
 ```
 
 ---
 
 ## Index and Momentum Mapping
 
-To translate a handwritten Feynman rule into a FORM script:
+To translate a handwritten Feynman rule:
 
 1. **Index Direction**: Write indices in the direction of fermion flow (matrix multiplication order).
 2. **Spinor Indices**: Use `i1, i2, i3...` for fermion lines (up to `i40`).
 3. **Lorentz Indices**: Use `mu1, mu2, mu3...` for vector indices (up to `mu20`).
-4. **Automatic Squaring**:
 
+
+Then call
    ```
    squareamplitude(Amp, Mat)
    ```
-
-   This automatically generates conjugate indices for $M^\dagger$ by shifting indices based on the highest index found.
-
----
-
-## Trace Evaluation Logic
-
-The procedure evaluates traces by stringing all `g` functions together using a `repeat` block.
-
-### Chain Joining
-
-```
-g(i1, i2, ?a) * g(i2, i3, ?b) = g(i1, i3, ?a, ?b)
-```
-
-### Identity Absorption
-
-```
-g(i1, i2) * g(i2, i3, ?a) = g(i1, i3, ?a)
-```
-
-### Loop Closure
-
-If an identity matrix closes a chain:
-
-```
-g(i1, i1, ?a)
-```
-
-### Identity Trace
-
-```
-g(i1, i1) = 4
-```
-
-### Final Evaluation
-
-Closed loops are converted to FORM's `g_` symbols and evaluated using:
-
-```
-Trace4
-```
-

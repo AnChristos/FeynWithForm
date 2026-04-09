@@ -1,8 +1,9 @@
 
 * Process: e+ e- -> mu+ mu- 
 
-* Suppress extra output
+
 #-
+* Above suppresses extra output
 Off Statistics;
 Off FinalStats;
 

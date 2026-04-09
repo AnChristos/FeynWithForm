@@ -98,9 +98,6 @@ repeat;
 * Handle  Unit with both indices matching gamma
     id g(i1?,i2?) * g(i1?,i2?,?a) = g(i1,i1,?a);
     id g(i1?,i2?) * g(i2?,i1?,?a) = g(i1,i1,?a);
-
-* Trace of identity matrix
-    id g(i1?,i1?) = 4;
 endrepeat;
 
 .sort:amplitude-3;

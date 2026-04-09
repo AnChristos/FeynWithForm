@@ -1,8 +1,8 @@
 
 * Process: pion -> fermion neutrino
 
-* Suppress extra output
 #-
+* Above suppresses extra output
 Off Statistics;
 Off FinalStats;
 
