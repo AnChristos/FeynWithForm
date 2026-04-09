@@ -31,7 +31,7 @@ id e^4 = 16 * pi^2 * alpha^2;
 * Spin averaging (1/2 * 1/2)
 multiply 1/4; 
 
-* 3. Kinematics 
+* Kinematics 
 * Repeat substitutions as needed.
 * We form all Mandelstam 
 * Note that here what happens

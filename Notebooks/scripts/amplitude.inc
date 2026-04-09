@@ -10,7 +10,7 @@
 *-------------------------------------------------------------------------*
 
 AutoDeclare Index i,mu,k;
-AutoDeclare Symbol m,x,lgnal;
+AutoDeclare Symbol m,x;
 AutoDeclare Vector p,q;
 Vector q,q1,q2,p1,...,p10;
 CF  UB,U,VB,V,g,eps;
@@ -90,8 +90,8 @@ id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
 *
 id  fprop(i1?,i2?,p?,m?) = (g(i1,i2,p)+g(i1,i2)*m)*prop(p.p-m^2);
 id  phprop(mu1?,mu2?,q?) = -d_(mu1,mu2)*prop(q.q);
-id  Zprop(mu1?,mu2?,q?,m?,lgnal?) = (-d_(mu1,mu2) + lgnal*q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
-id  Wprop(mu1?,mu2?,q?,m?,lgnal?) = (-d_(mu1,mu2) + lgnal*q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
+id  Zprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
+id  Wprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
 *
 *   String the gamma matrices together in traces.
 *

@@ -22,7 +22,7 @@ Local MQED = (e^2 )    * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0))
                        * (UB(i3, p3, 0) * g(i3, i4, mu2) * V(i4, p4, 0));
 
 Local MZ = (gweak^2/4) * (VB(i1, p2, 0) * g(i1, i2, mu1) * (cv*g(i2, i3) - ca*g(i2, i3, k5)) * U(i3, p1, 0))
-                       * Zprop(mu1, mu2, q, mZ,0)
+                       * Zprop(mu1, mu2, q, mZ)
                        * (UB(i4, p3, 0) * g(i4, i5, mu2) * (cv*g(i5, i6) - ca*g(i5, i6, k5)) * V(i6, p4, 0));
 Local Mtot = MQED + MZ;
 
@@ -40,20 +40,17 @@ print MsqQED;
 id e^4 = 16 * pi^2 * alpha^2;
 
 
-* 3. Kinematics 
-* Repeat substitutions as needed.
-* We form all Mandelstam 
-* Note that here what happens
-* is symbolic substitution
-
+* Kinematics 
+id q = p1 + p2;
+.sort
 id prop(x?) = 1/(x);
 .sort
-
-
 id 1/(q.q) = 1/(s);
 id 1/(-mZ^2 + q.q) = 1/(s - mZ^2);
 id q.q = s;
 .sort
+* Repeat substitutions as needed.
+* We form all Mandelstam 
 repeat;
 * Massless limit
     id p1.p1 = 0;
