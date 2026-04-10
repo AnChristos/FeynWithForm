@@ -98,7 +98,7 @@ V(i1?,p?,m?) * VB(i2?,p?,m?) =  g(i1,i2,p) - g(i1,i2)*m;
 ```
 
 ```
- eps(mu1?,p?) * eps(mu2?,p?) = -d_(mu1,mu2);
+eps(mu1?,p?) * eps(mu2?,p?) = -d_(mu1,mu2);
 ```
 
 ```
