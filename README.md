@@ -162,25 +162,22 @@ squareamplitude(Amp, Mat)
 
 ### Kinematics 
 
-All calculations are performed using 
-\[
-g^{\mu\nu} = \mathrm{diag}(1,-1,-1,-1)
-\]
+### Kinematics 
 
-- **On-shell condition**
-  \[
-  p^2 = m^2
-  \]
+All calculations are performed using the Minkowski metric  
 
-- **Mandelstam variables**
-  \[
-  s = (p_1 + p_2)^2
-  \]
-  \[
-  t = (p_1 - p_3)^2
-  \]
-  \[
-  u = (p_1 - p_4)^2
-  \]
+$g^{\mu\nu} = \mathrm{diag}(1, -1, -1, -1)$
+
+- **On-shell condition:** 
+
+$p_i^2 = m_i^2$
+
+- **Mandelstam variables:**  
+  
+  $s = (p_1 + p_2)^2$,  
+  
+  $t = (p_1 - p_3)^2$,  
+  
+  $u = (p_1 - p_4)^2$
 
 ---
