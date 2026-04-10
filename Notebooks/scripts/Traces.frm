@@ -7,7 +7,7 @@ Off FinalStats;
 
 CF g;
 AutoDeclare Index i,mu;
-Index k5 =0;
+Index k5=0, k6=0, k7=0;
 Vector p1,...,p10;
 Symbols cv, ca, m1, m2;
 
@@ -57,22 +57,22 @@ Local Trace4 = g(i1, i2, mu1) * g(i2, i3, mu2) * g(i3, i4, mu3) * g(i4, i1, mu4)
 Local TraceG5With4 = g(i1, i2, k5) * g(i2, i3, mu1) * g(i3, i4, mu2) * g(i4, i5, mu3) * g(i5, i1, mu4);
 * 6. cv, ca Trace  
 Local cvcaTrace = 
-    g(i1, i2, mu1) * (cv*g(i2, i3) - ca*g(i2, i3, k5)) * (g(i3, i4, p1) + m1*g(i3, i4)) *
-    g(i4, i5, mu2) * (cv*g(i5, i6) - ca*g(i5, i6, k5)) * (g(i6, i1, p2) + m2*g(i6, i1));
+    g(i1, i2, mu1) * 1/2 * ((cv+ca)*g(i2, i3, k7) + (cv-ca)*g(i2, i3, k6)) * (g(i3, i4, p1) + m1*g(i3, i4)) *
+    g(i4, i5, mu2) * 1/2 * ((cv+ca)*g(i5, i6, k7) + (cv-ca)*g(i5, i6, k6)) * (g(i6, i1, p2) + m2*g(i6, i1));
+
+
 repeat;
 * Handle:
 * 1. g(i1,i2,?a)*g(i2,i3,?b) -> g(i1,i3,?a,?b)
-* 2. g(i1,i2)*g(i2,i3,?a)    -> g(i1,i3,?a)
-* 3. g(i1,i2)*g(i2,i3)       -> g(i1,i3)
     id g(i1?,i2?,?a) * g(i2?,i3?,?b) = g(i1,i3,?a,?b);
-    id g(i1?,i2?) * g(i1?,i2?,?a) = g(i1,i1,?a);
-    id g(i1?,i2?) * g(i2?,i1?,?a) = g(i1,i1,?a);
 endrepeat;
 
 * Translation to Built-in
 #do i = 1,10
     id,once,g(i1?,i1?,?a) = g_(`i',?a);
-    id  g_(`i',k5) = g5_(`i');
+    id  g_(`i',k7) = g7_(`i');
+    al  g_(`i',k6) = g6_(`i');
+    al  g_(`i',k5) = g5_(`i');
 #enddo
 
 * Evaluate Traces
