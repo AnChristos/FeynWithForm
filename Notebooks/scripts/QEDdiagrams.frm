@@ -15,6 +15,12 @@ Local Annih = diagrams_(QED, {ePlus, eMinus}, {muPlus, muMinus}, ext, int, 0);
 Local Bhabha = diagrams_(QED, {ePlus, eMinus}, {ePlus, eMinus}, ext, int, 0);
 
 Local Moller = diagrams_(QED, {eMinus, eMinus}, {eMinus, eMinus}, ext, int, 0);
+
+Local ggee = diagrams_(QED, {ph, ph}, {ePlus, eMinus}, ext, int, 0);
+
+Local eegg = diagrams_(QED, {ePlus, eMinus}, {ph, ph}, ext, int, 0);
+
+Local compton = diagrams_(QED, {ph, eMinus}, {ph, eMinus}, ext, int, 0);
 .sort
 Print;
 .end
