@@ -7,20 +7,18 @@ At the same time, like many formalisms, it can become tedious, especially
 when dealing with longer expressions or multiple diagrams.
 
 This project provides a simple workflow that integrates Jupyter notebooks and Python for further processing.  
-The algebraic manipulations are handled using **FORM**. FORM is open source and 
-can be seen as the modern successor to Schoonschip, one of the earliest programs 
-designed for high-energy physics calculations.
+The algebraic manipulations are handled using **FORM**. 
+FORM is open source and can be seen as the modern successor to Schoonschip, one 
+of the earliest programs designed for high-energy physics calculations.
 
 ## Textbooks
 
 - *Quarks & Leptons: An Introductory Course to Modern Particle Physics* — Halzen & Martin  
 - *Diagrammatica: The Path to Feynman Diagrams* — Martinus Veltman  
 
-
 ## About FORM
 
 - **FORM**: J.A.M. Vermaseren, *"New features of FORM"* (math-ph/0010025)
-
 - Repository: https://github.com/form-dev/form  
 - Releases: https://github.com/form-dev/form/releases  
 - Manual: https://form-dev.github.io/form-docs/stable/manual/  
@@ -28,9 +26,8 @@ designed for high-energy physics calculations.
 ---
 
 ## Structure
-
-- `/Notebooks` — Interactive Jupyter environments  
-- `/scripts` — Raw FORM 5.0 files generated from notebooks  
+- `/Notebooks` — Interactive Jupyter environments  that run FORM
+- `Notebooks/scripts` — Raw FORM files (generated from notebooks)  
 
 ---
 

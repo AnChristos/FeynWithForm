@@ -11,17 +11,13 @@ Symbols s, t, u, me, E3E1ratioSq, PreFac;
 * constants
 Symbols e, pi, alpha;
 
-* Contracts: UB(i1) -> g(i1,i2,mu2) -> fprop(i2,i3,p1+p2) -> g(i3,i4,mu1) -> U(i4)
-Local Ms = (e^2) * UB(i1, p3, me) * g(i1, i2, mu2) 
+Local Ms = (e^2) * UB(i1, p3, me) * g(i1, i2, mu2) * eps(mu1, p2) 
                  * fprop(i2, i3, q1, me) 
-                 * g(i3, i4, mu1) * U(i4, p1, me)
-                 * eps(mu1, p2) * eps(mu2, p4);
+                 * g(i3, i4, mu1) * U(i4, p1, me) * eps(mu2, p4);
 
-* Contracts: UB(i1) -> g(i1,i2,mu1) -> fprop(i2,i3,p1-p4) -> g(i3,i4,mu2) -> U(i4)
-Local Mu = (e^2) * UB(i1, p3, me) * g(i1, i2, mu1) 
+Local Mu = (e^2) * UB(i1, p3, me) * g(i1, i2, mu1) * eps(mu1, p2)
                  * fprop(i2, i3, q2 , me) 
-                 * g(i3, i4, mu2) * U(i4, p1, me)
-                 * eps(mu1, p2) * eps(mu2, p4);
+                 * g(i3, i4, mu2) * U(i4, p1, me) * eps(mu2, p4);
 
 
 Local Mtot = Ms + Mu;

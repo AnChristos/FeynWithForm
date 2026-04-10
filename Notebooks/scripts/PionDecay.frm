@@ -1,7 +1,6 @@
 
-* Process: pion -> fermion neutrino
+* Process: pion -> anti-fermion neutrino
 
-#-
 * Above suppresses extra output
 Off Statistics;
 Off FinalStats;
@@ -10,14 +9,14 @@ Off FinalStats;
 
 * Massess
 Symbols  ml, mpi;
+Vector pPion;
 
 * I will ommit constants as we want to take a ratio.
 * This should be multiplied by a constant which I ommit
-Local M =  ( 
-            VB(i1, p4, 0) * (g(i1, i2) - g(i1, i2, k5)) * g(i2, i3, pPion) * V(i3, p3, ml)
-          );
+Local M =  UB(i1, p4, 0) * (g(i1, i2) - g(i1, i2, k5)) * g(i2, i3, mu1) * V(i3, p3, ml)  * pPion(mu1);
 
 #call squareamplitude(M, Msq)
+multiply -1;
 .sort
 
 * --- Kinematics ---
