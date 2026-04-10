@@ -35,7 +35,7 @@ Local MsqInt = MsqTot - MsqQED - MsqZ;
 multiply 1/4; 
 .sort
 
-print MsqQED;
+
 * Physics & Normalization
 id e^4 = 16 * pi^2 * alpha^2;
 
@@ -43,10 +43,10 @@ id e^4 = 16 * pi^2 * alpha^2;
 * Kinematics 
 id q = p1 + p2;
 .sort
-id prop(x?) = 1/(x);
+id prop(x?) = (x)^-1;
 .sort
-id 1/(q.q) = 1/(s);
-id 1/(-mZ^2 + q.q) = 1/(s - mZ^2);
+id (q.q)^-1 = (s)^-1;
+id (-mZ^2 + q.q)^-1 = (s - mZ^2)^-1;
 id q.q = s;
 .sort
 * Repeat substitutions as needed.
@@ -68,9 +68,9 @@ endrepeat;
 .sort;
 
 * Differential cross section formula
-Local dSigmaQED = (1 / (64 * pi^2 * s)) * pfInOutRatio * MsqQED;
-Local dSigmaZ = (1 / (64 * pi^2 * s)) * pfInOutRatio * MsqZ;
-Local dSigmaInt = (1 / (64 * pi^2 * s)) * pfInOutRatio * MsqInt;
+Local dSigmaQED = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqQED;
+Local dSigmaZ = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqZ;
+Local dSigmaInt = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqInt;
 .sort
 
 Bracket s, alpha, gweak, pi, pfInOutRatio;
@@ -78,28 +78,17 @@ Bracket s, alpha, gweak, pi, pfInOutRatio;
 * Save
 Format C;
 #write <ee_incl_mumu_QED.txt> "%e;", dSigmaQED;
-.sort
-* Print
-Format;
-Print MsqQED;
-Print dSigmaQED;
-
-* Save
-Format C;
+#write <ee_incl_mumu_Int.txt> "%e;", dSigmaInt;
 #write <ee_incl_mumu_Z.txt> "%e;", dSigmaZ;
 .sort
-* Print
-Format;
-Print MsqZ;
-Print dSigmaZ;
 
-* Save
-Format C;
-#write <ee_incl_mumu_Int.txt> "%e;", dSigmaInt;
-.sort
 * Print
 Format;
-Print MsqInt;
-Print dSigmaInt;
+Print +s MsqZ;
+Print +s dSigmaZ;
+Print +s MsqInt;
+Print +s dSigmaInt;
+Print +s MsqQED;
+Print +s dSigmaQED;
 
 .end

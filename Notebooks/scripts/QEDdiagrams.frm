@@ -1,3 +1,10 @@
+
+* Example generating LO QED topologies
+#-
+* Above suppresses extra output
+Off Statistics;
+Off FinalStats;
+
 Vector p1,...,p10, q1,...,q10;
 Set ext : p1,...,p10;
 Set int : q1,...,q10;
@@ -22,5 +29,5 @@ Local eegg = diagrams_(QED, {ePlus, eMinus}, {ph, ph}, ext, int, 0);
 
 Local compton = diagrams_(QED, {ph, eMinus}, {ph, eMinus}, ext, int, 0);
 .sort
-Print;
+Print +ss;
 .end
