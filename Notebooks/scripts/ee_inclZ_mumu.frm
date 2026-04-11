@@ -32,29 +32,23 @@ Local Mtot = MQED + MZ;
 .sort 
 Local MsqInt = MsqTot - MsqQED - MsqZ;
 .sort
+
+
+* Spin averaging (1/2 * 1/2)
 multiply 1/4; 
-.sort
-
-
-* Physics & Normalization
+* coupling
 id e^4 = 16 * pi^2 * alpha^2;
 id e^2 = 4 * pi * alpha;
-
-
-* Conservation
-id q = p1 + p2;
-.sort
+id e^4 = 16 * pi^2 * alpha^2;
 * propagator handling
+id q = p1 + p2;
 id prop(x?) = (x)^-1;
-.sort
 id (q.q)^-1 = (s)^-1;
 id (-mZ^2 + q.q)^-1 = (s - mZ^2)^-1;
 .sort
 
-* Mandelstam 
-id q.q = s;
-.sort
-* Repeat substitutions as needed.
+
+* Mandelstam
 repeat;
 * Massless limit
     id p1.p1 = 0;
@@ -71,28 +65,19 @@ repeat;
 endrepeat;
 .sort;
 
-* Differential cross section formula
-Local dSigmaQED = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqQED;
-Local dSigmaZ = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqZ;
-Local dSigmaInt = (64 * pi^2 * s)^-1 * pfInOutRatio * MsqInt;
-.sort
 
-Bracket s, alpha, gweak, pi, pfInOutRatio;
+Bracket s, alpha, gweak;
 .sort
 * Save
 Format C;
-#write <ee_incl_mumu_QED.txt> "%e;", dSigmaQED;
-#write <ee_incl_mumu_Int.txt> "%e;", dSigmaInt;
-#write <ee_incl_mumu_Z.txt> "%e;", dSigmaZ;
+#write <ee_incl_mumu_QED.txt> "%e;", MsqQED;
+#write <ee_incl_mumu_Int.txt> "%e;", MsqInt;
+#write <ee_incl_mumu_Z.txt> "%e;", MsqZ;
 .sort
 
 * Print
 Format;
 Print +s MsqZ;
-Print +s dSigmaZ;
 Print +s MsqInt;
-Print +s dSigmaInt;
 Print +s MsqQED;
-Print +s dSigmaQED;
-
 .end

@@ -25,22 +25,20 @@ Local Mtot = Ms + Mu;
 * Square the total amplitude
 #call squareamplitude(Mtot, Msq)
 .sort
-* Average over initial spins (1/2) and polarizations (1/2) = 1/4
-multiply 1/4;
-.sort 
 
-* conservation
+* Spin averaging (1/2 * 1/2)
+multiply 1/4; 
+* coupling
+id e^4 = 16 * pi^2 * alpha^2;
+* propagator handling
 id q1 = p1 + p2;
 id q2 = p1 - p4;
-.sort
-* propagator handling
+
 id prop(x?) = (x)^-1;
-.sort
-id (q1.q1)^-1 = (s)^-1;
-id (q2.q2)^-1 = (u)^-1;
 id (-me^2 + q1.q1)^-1 = (s - me^2)^-1;
 id (-me^2 + q2.q2)^-1 = (u - me^2)^-1;
-.sort 
+.sort
+
 * Mandelstam 
 id q1.q1 = s;
 id q2.q2 = u;
@@ -59,23 +57,14 @@ repeat;
     id p2.p4 = -t/2;
 endrepeat;
 .sort
-id e^4 = 16 * pi^2 * alpha^2;
-.sort
-Local dSigmaLab = PreFac * Msq;
-.sort
-id PreFac = ((1 / (64 * pi^2 * me^2)) * E3E1ratioSq);
-.sort
 
-Bracket s, alpha,E3E1ratioSq, pi ;
-.sort
+Bracket s, alpha, pi ;
 * Save
 Format C;
-#write <Compton.txt> "%e;", dSigmaLab;
+#write <Compton.txt> "%e;", Msq;
 .sort
 
 * Print
 Format;
-Format;
 Print+s  Msq;
-Print+s  dSigmaLab;
 .end
