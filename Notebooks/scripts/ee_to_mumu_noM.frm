@@ -13,13 +13,17 @@ Symbols s, t, u;
 * Physical constants
 Symbols e, pi, alpha;
 
-Local M = (e^2 / s) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) * (UB(i3, p3, 0) * g(i3, i4, mu1) * V(i4, p4, 0));
+Local M = (e^2) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) *  phprop(mu1, mu2, q)  * (UB(i3, p3, 0) * g(i3, i4, mu2) * V(i4, p4, 0));
 #call squareamplitude(M, Msq)
 .sort
 * Spin averaging (1/2 * 1/2)
 multiply 1/4; 
-.sort 
+* coupling
 id e^4 = 16 * pi^2 * alpha^2;
+* propagator handling
+id q = p1 + p2;
+id prop(x?) = (x)^-1;
+id (q.q)^-1 = (s)^-1;
 .sort
 
 * Kinematics 

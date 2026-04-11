@@ -79,6 +79,6 @@ def XS_2To2_CM(Msq, s,t,u, theta,  m1, m2, m3, m4):
     Msq = Msq.subs({
         t: t_phys, 
         u: u_phys,})
-
     return sp.simplify(ps_factor * Msq)
+
 
