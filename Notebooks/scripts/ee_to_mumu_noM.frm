@@ -13,11 +13,6 @@ Symbols s, t, u;
 * Physical constants
 Symbols e, pi, alpha;
 
-* Three momenta ratio in CM
-Symbols pfInOutRatio;
-
-
-
 Local M = (e^2 / s) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) * (UB(i3, p3, 0) * g(i3, i4, mu1) * V(i4, p4, 0));
 #call squareamplitude(M, Msq)
 .sort
@@ -28,10 +23,6 @@ id e^4 = 16 * pi^2 * alpha^2;
 .sort
 
 * Kinematics 
-* Repeat substitutions as needed.
-* We form all Mandelstam 
-* Note that here what happens
-* is symbolic substitution
 repeat;
 
     id p1.p1 = 0;
@@ -52,7 +43,7 @@ repeat;
 endrepeat;
 .sort
 
-bracket alpha, s, pfInOutRatio;
+bracket alpha, s;
 .sort
 * Save
 Format C;
