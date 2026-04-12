@@ -7,7 +7,7 @@ Off FinalStats;
 #include amplitude.inc
 
 * Kinematic variables
-Symbols s, t, u, me, E3E1ratioSq, PreFac;
+Symbols s, t, u, me;
 * constants
 Symbols e, pi, alpha;
 
