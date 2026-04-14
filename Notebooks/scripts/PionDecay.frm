@@ -5,7 +5,7 @@
 * Above suppresses extra output
 Off Statistics;
 Off FinalStats;
-#include amplitude.inc
+#include amplitude.h
 
 Symbols  ml, mpi;
 Vector pPion;

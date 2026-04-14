@@ -1,12 +1,12 @@
 
 * Process: e+ e- -> mu+ mu- (EW)
 
-#-
+
 * Above suppresses extra output
 Off Statistics;
 Off FinalStats;
 
-#include amplitude.inc
+#include amplitude.h
 
 * Kinematic variables
 Symbols s, t, u;
