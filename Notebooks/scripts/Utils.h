@@ -24,7 +24,6 @@ repeat;
     id g(i1?,i2?,?a) * g(i2?,i3?,?b) = g(i1,i3,?a,?b);
 endrepeat; 
 .sort:chains-glued;
-
 *
 *   Now put the traces one by one in terms of the built in gammas
 *
@@ -43,6 +42,28 @@ Trace4,`i';
 #enddo
 
 #endprocedure
+
+*--------------------------------------------------------
+* Procedure: SpinSumAndProp
+* Description: Do the spinSum and propagator 
+* replacements
+* ------------------------------------------------------
+#procedure SpinSumAndProp(Mat)
+
+* Spin sums for external particles
+id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
+id  V(i1?,p?,m?)*VB(i2?,p?,m?) =  g(i1,i2,p)-g(i1,i2)*m;
+id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
+id  epsM(mu1?, p?, m?)*epsM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
+
+* Internal Propagators
+id  fprop(i1?,i2?,p?,m?) = (g(i1,i2,p)+g(i1,i2)*m)*prop(p.p-m^2);
+id  phprop(mu1?,mu2?,q?) = -d_(mu1,mu2)*prop(q.q);
+id  Zprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
+id  Wprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
+.sort:spinsum-prop-applied;
+#endprocedure
+
 
 *--------------------------------------------------------
 * Procedure: conjugate 

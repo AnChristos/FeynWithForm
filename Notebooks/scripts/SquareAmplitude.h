@@ -48,22 +48,8 @@ Skip;
 *
 Skip;
 Drop,`Amp',`Amp'C;
-L   `Mat' = `Amp'*`Amp'C;
-*
-*   Spin sums
-*
-id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
-id  V(i1?,p?,m?)*VB(i2?,p?,m?) =  g(i1,i2,p)-g(i1,i2)*m;
-id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
-id  epsM(mu1?, p?, m?)*epsM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
-*
-*   Propagators
-*
-id  fprop(i1?,i2?,p?,m?) = (g(i1,i2,p)+g(i1,i2)*m)*prop(p.p-m^2);
-id  phprop(mu1?,mu2?,q?) = -d_(mu1,mu2)*prop(q.q);
-id  Zprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
-id  Wprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
-.sort:amplitude-3;
+Local   `Mat' = `Amp'*`Amp'C;
+#call SpinSumAndProp(`Mat')
 *
 * doTrace
 *
