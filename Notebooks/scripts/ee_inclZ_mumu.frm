@@ -8,11 +8,8 @@ Off FinalStats;
 
 #include SquareAmplitude.h
 
-* Kinematic variables
-Symbols s, t, u;
-
 * Physical constants
-Symbols e, pi, alpha, cv, ca, mZ, gweak;
+Symbols e, pi, alpha, mZ, gweak;
 
 * Three momenta ratio in CM
 Symbols pfInOutRatio;

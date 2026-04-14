@@ -7,9 +7,6 @@ Off FinalStats;
 
 #include SquareAmplitude.h
 
-* Kinematic variables
-Symbols s, t, u;
-
 * Physical constants
 Symbols e, pi, alpha;
 
