@@ -47,7 +47,6 @@ def capture_physics_expr(filename="tmp.txt"):
         with open(filename, "r") as f:
             content = f.read()
             content = content.replace("\n", "").replace(" ", "")
-
             content = content.replace(";_+=", "+")
             content = content.replace("++", "+").replace("+-", "-").replace("-+", "-")
             content = content.rstrip(";")

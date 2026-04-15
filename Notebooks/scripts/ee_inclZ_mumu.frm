@@ -11,8 +11,6 @@ Off FinalStats;
 * Physical constants
 Symbols e, pi, alpha, mZ, gweak;
 
-* Three momenta ratio in CM
-Symbols pfInOutRatio;
 
 Local MQED = (e^2 )    * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0))  
                        * phprop(mu1, mu2, q) 
@@ -20,7 +18,7 @@ Local MQED = (e^2 )    * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0))
 
 Local MZ = (gweak^2/4) * (VB(i1, p2, 0) * g(i1, i2, mu1) 
                        * 1/2* ((cv-ca)*g(i2, i3, k7) + (cv+ca)*g(i2, i3, k6)) 
-                      * U(i3, p1, 0))
+                       * U(i3, p1, 0))
                        * Zprop(mu1, mu2, q, mZ)
                        * (UB(i4, p3, 0) * g(i4, i5, mu2) 
                        * 1/2 * ((cv-ca)*g(i5, i6, k7) + (cv+ca)*g(i5, i6, k6)) 

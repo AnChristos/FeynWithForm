@@ -66,20 +66,20 @@ def XS_Compton_Lab(Msq, s, t, u, theta, E1, me):
     me : Electron mass (scalar or symbol)
     """
     E3 = sp.Symbol("E3", positive=True)
-    
-    # Lab frame Mandelstam 
+
+    # Lab frame Mandelstam
     s_phys = me**2 + 2 * me * E1
     t_phys = -2 * me * (E1 - E3)
     u_phys = 2 * me**2 - s_phys - t_phys
-    
+
     # Phase Space Lab Frame
-    ps_factor_const = (1 / (64 * sp.pi**2 * me**2))
-    #Intermediate Simplification
+    ps_factor_const = 1 / (64 * sp.pi**2 * me**2)
+    # Intermediate Simplification
     Msq_sub = Msq.subs({s: s_phys, t: t_phys, u: u_phys})
-    core = sp.simplify(Msq_sub*ps_factor_const)
-    intermediate = core*(E3 / E1)**2
+    core = sp.simplify(Msq_sub * ps_factor_const)
+    intermediate = core * (E3 / E1) ** 2
 
     E3_phys = E1 / (1 + (E1 / me) * (1 - sp.cos(theta)))
     result = sp.simplify(intermediate.subs(E3, E3_phys))
-    
+
     return result
