@@ -23,32 +23,15 @@ multiply 1/4;
 * coupling
 id e^4 = 16 * pi^2 * alpha^2;
 * propagator handling
-id q = p1 + p2;
+repeat;
+    id q = p1 + p2;
+endrepeat;
 id prop(x?) = (x)^-1;
 id (q.q)^-1 = (s)^-1;
 .sort
 
-
 * Kinematics 
-repeat;
-
-    id p1.p1 = 0;
-    id p2.p2 = 0;
-    id p3.p3 = Mass^2;
-    id p4.p4 = Mass^2;
-
-    id p1.p2 = (s - p1.p1 - p2.p2)/2;
-    id p3.p4 = (s - p3.p3 - p4.p4)/2;
-
-
-    id p1.p3 = (p1.p1 + p3.p3 - t)/2;
-    id p2.p4 = (p2.p2 + p4.p4 - t)/2;
-
-
-    id p1.p4 = (p1.p1 + p4.p4 - u)/2;
-    id p2.p3 = (p2.p2 + p3.p3 - u)/2;
-endrepeat;
-.sort
+#call Mandelstam2To2(p1,p2,p3,p4,0,0,Mass,Mass)
 
 
 bracket alpha, s;

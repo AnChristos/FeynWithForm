@@ -43,26 +43,36 @@ Trace4,`i';
 
 #endprocedure
 
-*--------------------------------------------------------
-* Procedure: SpinSumAndProp
-* Description: Do the spinSum and propagator 
-* replacements
-* ------------------------------------------------------
-#procedure SpinSumAndProp(Mat)
 
-* Spin sums for external particles
-id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
-id  V(i1?,p?,m?)*VB(i2?,p?,m?) =  g(i1,i2,p)-g(i1,i2)*m;
-id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
-id  epsM(mu1?, p?, m?)*epsM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
+*--------------------------------------------------------
+* Procedure: Propagators
+* Description: Do the Propagator replacement
+* ------------------------------------------------------
+#procedure Propagators(Mat)
 
 * Internal Propagators
 id  fprop(i1?,i2?,p?,m?) = (g(i1,i2,p)+g(i1,i2)*m)*prop(p.p-m^2);
 id  phprop(mu1?,mu2?,q?) = -d_(mu1,mu2)*prop(q.q);
 id  Zprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
 id  Wprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1)*q(mu2)/(m^2)) * prop(q.q - m^2);
-id  Fermiprop(mu1?,mu2?,m?) = (-d_(mu1,mu2))* m^-2;
-.sort:spinsum-prop-applied;
+.sort:propagators;
+
+#endprocedure
+
+*--------------------------------------------------------
+* Procedure: SpinSum
+* Description: Do the spinSum replacements
+* ------------------------------------------------------
+#procedure SpinSum(Mat)
+
+* Spin sums for external particles
+id  U(i1?,p?,m?)*UB(i2?,p?,m?) =  g(i1,i2,p)+g(i1,i2)*m;
+id  V(i1?,p?,m?)*VB(i2?,p?,m?) =  g(i1,i2,p)-g(i1,i2)*m;
+id  eps(mu1?,p?)*eps(mu2?,p?) = -d_(mu1,mu2);
+id  epsM(mu1?, p?, m?)*epsM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
+.sort:spinsum;
+
+
 #endprocedure
 
 
@@ -103,5 +113,34 @@ id  g(?a,k5) = -g(?a,k5);
 .sort
 #endprocedure 
 
+
+*-------------------------------------------------------------------------*
+* Procedure: Mandelstam2To2
+* p1, p2: Initial state vectors
+* p3, p4: Final state vectors
+* m1, m2, m3, m4: Masses of the respective particles
+*-------------------------------------------------------------------------*
+#procedure Mandelstam2To2(p1, p2, p3, p4, m1, m2, m3, m4)
+repeat;
+    id `p1'.`p1' = `m1'^2;
+    id `p2'.`p2' = `m2'^2;
+    id `p3'.`p3' = `m3'^2;
+    id `p4'.`p4' = `m4'^2;
+
+* s-channel combinations
+    id `p1'.`p2' = (s - `m1'^2 - `m2'^2)/2;
+    id `p3'.`p4' = (s - `m3'^2 - `m4'^2)/2;
+
+* t-channel combinations
+    id `p1'.`p3' = (`m1'^2 + `m3'^2 - t)/2;
+    id `p2'.`p4' = (`m2'^2 + `m4'^2 - t)/2;
+
+* u-channel combinations
+    id `p1'.`p4' = (`m1'^2 + `m4'^2 - u)/2;
+    id `p2'.`p3' = (`m2'^2 + `m3'^2 - u)/2;
+endrepeat;
+
+.sort:kinematics-applied;
+#endprocedure
 
 #endif

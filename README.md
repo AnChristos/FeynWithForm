@@ -125,9 +125,8 @@ Zprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1) * q(mu2)/(m^2)) * prop(q.q - m^2
 Wprop(mu1?,mu2?,q?,m?) = (-d_(mu1,mu2) + q(mu1) * q(mu2)/(m^2)) * prop(q.q - m^2);
 ```
 
-
 The `prop` function is kept symbolic in intermediate expressions  
-It must be resolved using kinematics and momentum conservation  
+It must be resolved using kinematics and momentum conservation.  
 
 For example:
 ```

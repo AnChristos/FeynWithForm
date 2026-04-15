@@ -2,9 +2,8 @@
 #define SYMBOLSH "1"
 *-------------------------------------------------------------------------*
 * Symbols.h
-* 
-* Based on material from:  
-* https://www.nikhef.nl/~form/maindir/courses/uam2019/uam2019.html
+* Defines global symbols for the procedures and routines
+* We "reserve" those
 *-------------------------------------------------------------------------*
 
 *-------------------------------------------------------------------------*
@@ -37,6 +36,6 @@ Vector p, p1, ..., p`MAXVEC';
 Vector q, q1, q2, q3;
 
 Symbols m, s, t, u, cv, ca;
-CF UB, U, VB, V, g, eps, epsM, fprop, phprop, Zprop, Wprop, prop, Fermiprop;
+CF UB, U, VB, V, g, eps, epsM, fprop, phprop, Zprop, Wprop, prop;
 
 #endif

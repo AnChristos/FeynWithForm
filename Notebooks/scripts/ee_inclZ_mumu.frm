@@ -39,11 +39,16 @@ multiply 1/4;
 id e^4 = 16 * pi^2 * alpha^2;
 id e^2 = 4 * pi * alpha;
 * propagator handling
-id q = p1 + p2;
 id prop(x?) = (x)^-1;
 id (q.q)^-1 = (s)^-1;
 id (-mZ^2 + q.q)^-1 = (s - mZ^2)^-1;
+repeat;
+    id q = p1 + p2;
+endrepeat;
 .sort
+
+* Kinematics 
+#call Mandelstam2To2(p1,p2,p3,p4,0,0,0,0)
 
 
 * Mandelstam

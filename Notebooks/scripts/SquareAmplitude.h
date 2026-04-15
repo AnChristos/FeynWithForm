@@ -49,7 +49,8 @@ Skip;
 Skip;
 Drop,`Amp',`Amp'C;
 Local   `Mat' = `Amp'*`Amp'C;
-#call SpinSumAndProp(`Mat')
+#call SpinSum(`Mat')
+#call Propagators(`Mat')
 *
 * doTrace
 *
