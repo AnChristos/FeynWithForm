@@ -47,7 +47,7 @@ def dGamma_dOmega(Msq, M, m2, m3):
     """
     Converts a Matrix Element (Msq) into
     a differential decay rate dSigma/dOmega
-    in the Center-of-Mass frame.
+    in the rest frame of the decaying particle.
     Parameters:
     Msq    : SymPy expression
     M  : SumPy symbol for decaying particle
