@@ -23,11 +23,11 @@ multiply 1/4;
 * coupling
 id e^4 = 16 * pi^2 * alpha^2;
 * propagator handling
+id prop(x?) = (x)^-1;
+id (q.q)^-1 = (s)^-1;
 repeat;
     id q = p1 + p2;
 endrepeat;
-id prop(x?) = (x)^-1;
-id (q.q)^-1 = (s)^-1;
 .sort
 
 * Kinematics 
