@@ -8,7 +8,7 @@ Off FinalStats;
 #include SquareAmplitude.h
 
 Symbols e, Mmuon, Melec, x;
-Vectors k, kf1, kf2, kq;
+Vectors k, kf1, kf2;
 Symbols k2 , kminusq2, kdotp1, kminusqdotp2, kdotkminusq;
 
 
@@ -37,13 +37,12 @@ Local MInt = MsqTotal - MsqLO - MsqNLO;
 Multiply 1/4;
 .sort
 
-* --- KINEMATIC DEFINITIONS ---
-* q = p1 - p3 (Momentum transfer)
-* t = q.q (Mandelstam t)
-* k = loop momentum
-* kf1 = k (First internal fermion line)
-* kf2 = k - q (Second internal fermion line)
-* kq = q (Photon momentum for loop)
+* --- KINEMATIC DEFINITIONS: VACUUM POLARIZATION ---
+* q  = p1 - p3           : Momentum transfer between electron and muon lines
+* t  = q.q               : Mandelstam variable t (photon momentum squared)
+* k  = loop momentum     : Integration variable for the fermion loop
+* kf1 = k                : Momentum of the first fermion in the bubble
+* kf2 = k - q            : Momentum of the second fermion in the bubble (cons. of momentum)
 
 * --- MASSLESS APPROXIMATION ---
 * keeps the Melec in the fermion propagator
@@ -53,7 +52,6 @@ id Mmuon = 0;
 
 * Replace the propagator function with algebraic denominators
 id prop(q.q) = 1/t;
-id prop(kq.kq) = 1/t;
 id prop(-Melec^2 + kf1.kf1) = 1/(-Melec^2 +k2);
 id prop(-Melec^2 + kf2.kf2) = 1/(-Melec^2 +kminusq2);
 
