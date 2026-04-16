@@ -16,19 +16,13 @@ Local MLO = (e^2) * (UB(i1, p3, Melec ) * g(i1, i2, mu1) * U(i2, p1, Melec))
             * phprop(mu1, mu2, q)
             * (UB(i3, p4, Mmuon) * g(i3, i4, mu2) * U(i4, p2, Mmuon));
 
-* UB(i1, p3) [Outgoing] -> g(i1,i2,mu3) [Loop Absorption] -> fprop(i2,i3,kf2) [Internal Prop 2] 
-* -> g(i3,i4,mu1) [Main Interaction] -> fprop(i4,i5,kf1) [Internal Prop 1] 
-* -> g(i5,i6,mu3) [Loop Emission] -> U(i6, p1) [Incoming]
-Local MNLO = (e^4) * (UB(i1, p3, Melec) 
-                  * g(i1, i2, mu3) 
-                  * fprop(i2, i3, kf2, Melec) 
-                  * g(i3, i4, mu1) 
-                  * fprop(i4, i5, kf1, Melec) 
-                  * g(i5, i6, mu4) 
-                  * U(i6, p1, Melec))
-                  * phprop(mu3, mu4, kq)
-                  * phprop(mu1, mu2, q)
-                  * (UB(i7, p4, Mmuon) * g(i7, i8, mu2) * U(i8, p2, Mmuon));
+Local MNLO = -1* (e^4) 
+             * (UB(i1, p3, Melec) * g(i1, i2, mu1) * U(i2, p1, Melec)) 
+             * phprop(mu1, mu3, q) 
+             * g(i11, i12, mu3) * fprop(i12, i13, kf1, Melec) 
+             * g(i13, i14, mu4) * fprop(i14, i11, kf2, Melec)
+             * phprop(mu4, mu2, q)
+             * (UB(i7, p4, Mmuon) * g(i7, i8, mu2) * U(i8, p2, Mmuon));
 
 Local MTotal = MLO+MNLO;
 #call squareamplitude(MLO, MsqLO)
