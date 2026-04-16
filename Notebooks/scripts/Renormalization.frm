@@ -69,6 +69,12 @@ id kf2.p2? = kminusqdotp2;
 id kf1.kf2 = kdotkminusq;
 .sort
 
-Print MInt;
+* Save to file 
+Format C;
+#write <Renormalization.txt> "%e;", MInt;
+.sort
+* Print 
+Format;
+Print+s MInt;
 
 .end
