@@ -29,13 +29,12 @@ Local MTotal = MLO+MNLO;
 #call squareamplitude(MNLO, MsqNLO)
 #call squareamplitude(MTotal, MsqTotal)
 .sort
-
-Drop drop MsqLO, MsqNLO, MsqTotal, MLO, MNLO, MTotal ;
+Multiply 1/4;
+.sort
+Drop drop MsqNLO, MsqTotal, MLO, MNLO, MTotal ;
 Local MInt = MsqTotal - MsqLO - MsqNLO;
 .sort
 
-Multiply 1/4;
-.sort
 
 * --- KINEMATIC DEFINITIONS: VACUUM POLARIZATION ---
 * q  = p1 - p3           : Momentum transfer between electron and muon lines
@@ -43,12 +42,6 @@ Multiply 1/4;
 * k  = loop momentum     : Integration variable for the fermion loop
 * kf1 = k                : Momentum of the first fermion in the bubble
 * kf2 = k - q            : Momentum of the second fermion in the bubble (cons. of momentum)
-
-* --- MASSLESS APPROXIMATION ---
-* keeps the Melec in the fermion propagator
-id Melec = 0;
-id Mmuon = 0;
-#call Mandelstam2To2(p1,p2,p3,p4,0,0,0,0)
 
 * Replace the propagator function with algebraic denominators
 id prop(q.q) = 1/t;
@@ -61,12 +54,21 @@ id kf2.p2? = kminusqdotp2;
 id kf1.kf2 = kdotkminusq;
 .sort
 
+* --- MASSLESS APPROXIMATION ---
+* keeps the Melec in the fermion propagator
+id Melec = 0;
+id Mmuon = 0;
+#call Mandelstam2To2(p1,p2,p3,p4,0,0,0,0)
+id u = -s -t;
+
 * Save to file 
 Format C;
+#write <RenormalizationLO.txt> "%e;", MsqLO;
 #write <Renormalization.txt> "%e;", MInt;
 .sort
 * Print 
 Format;
 Print+s MInt;
+Print+s MsqLO;
 
 .end
