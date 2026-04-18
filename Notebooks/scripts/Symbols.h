@@ -35,7 +35,7 @@ Index mu, i, k5=0, k6=0, k7=0;
 Vector p, p1, ..., p`MAXVEC';
 Vector k, q, q1, q2, q3;
 
-Symbols m, m0, m1, s, t, u, cv, ca;
+Symbols m, s, t, u, cv, ca;
 
 CF UB, U, VB, V, g, eps, epsM, 
 CF fprop, phprop, Zprop, Wprop, prop;
