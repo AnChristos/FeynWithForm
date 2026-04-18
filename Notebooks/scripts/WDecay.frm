@@ -5,7 +5,7 @@
 * Above suppresses extra output
 Off Statistics;
 Off FinalStats;
-#include SquareAmplitude.h
+#include FeynHelpers.h
 
 * Massess
 Symbols  ml, mW, gW;

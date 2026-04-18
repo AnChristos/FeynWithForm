@@ -6,7 +6,7 @@
 Off Statistics;
 Off FinalStats;
 
-#include SquareAmplitude.h
+#include FeynHelpers.h
 
 * Physical constants
 Symbols e, pi, alpha, Mass, x;

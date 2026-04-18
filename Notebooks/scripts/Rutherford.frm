@@ -6,7 +6,7 @@
 Off Statistics;
 Off FinalStats;
 
-#include SquareAmplitude.h
+#include FeynHelpers.h
 
 Symbols e, pi, alpha, Mproton, x;
 

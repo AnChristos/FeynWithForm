@@ -1,17 +1,9 @@
-*-------------------------------------------------------------------------*
-* SquareAmplitude.h
-*
-* Based on material from:  
-* https://www.nikhef.nl/~form/maindir/courses/uam2019/uam2019.html
-*-------------------------------------------------------------------------*
-#include Utils.h
-
+#procedure squareamplitude(Amp,Mat)
 *--------------------------------------------------------
 * Procedure: squareamplitude 
 * Description: Calculate Feynman amplitudes squared. 
 * ------------------------------------------------------
 *
-#procedure squareamplitude(Amp,Mat)
 .sort
 *
 *   We skip everything but Amp. In Amp we look for the highest i and mu indices
@@ -57,6 +49,5 @@ Local   `Mat' = `Amp'*`Amp'C;
 Skip;
 NSkip `Mat';
 #call doTrace(`Mat')
+
 #endprocedure
-
-

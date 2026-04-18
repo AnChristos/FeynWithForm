@@ -1,13 +1,7 @@
-#ifndef `SYMBOLSH'
-#define SYMBOLSH "1"
 *-------------------------------------------------------------------------*
-* Symbols.h
+* FeynHelpers.h
 * Defines global symbols for the procedures and routines
 * We "reserve" those
-*-------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------*
-* Symbols.h - Clean Explicit Version
 *-------------------------------------------------------------------------*
 
 * --- Symbol Limits ---
@@ -35,9 +29,10 @@ Index mu, i, k5=0, k6=0, k7=0;
 Vector p, p1, ..., p`MAXVEC';
 Vector k, q, q1, q2, q3;
 
-Symbols m, s, t, u, cv, ca;
+Symbols m, m1, ..., m`MAXVEC';
+Symbols s, t, u, cv, ca;
 
 CF UB, U, VB, V, g, eps, epsM, 
 CF fprop, phprop, Zprop, Wprop, prop;
 CF  Den, A0, B0;
-#endif
+
