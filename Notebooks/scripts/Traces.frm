@@ -32,12 +32,7 @@ Local cvcaTrace =
     g(i1, i2, mu1) * 1/2 * ((cv+ca)*g(i2, i3, k7) + (cv-ca)*g(i2, i3, k6)) * (g(i3, i4, p1) + m1*g(i3, i4)) *
     g(i4, i5, mu2) * 1/2 * ((cv+ca)*g(i5, i6, k7) + (cv-ca)*g(i5, i6, k6)) * (g(i6, i1, p2) + m2*g(i6, i1));
 
-#call doTrace(Trace2)
-#call doTrace(Trace3)
-#call doTrace(Trace4)
-#call doTrace(TraceG5With4)
-#call doTrace(cvcaTrace)
-
+#call doTrace()
 
 * Group terms by the physical couplings and masses
 Bracket cv, ca, m1, m2;

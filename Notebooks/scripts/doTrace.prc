@@ -1,4 +1,4 @@
-#procedure doTrace(Mat)
+#procedure doTrace()
 *--------------------------------------------------------
 * Procedure: doTrace 
 * Description Glues gamma chains and executes Dirac traces

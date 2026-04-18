@@ -1,4 +1,0 @@
-1./2.*pow(mW,2)*pow(gW,4) - 1./2.*pow(ml,4)*pow(mW,-2)*pow(gW,4) - 2*p2_n*p3_n
-      *pow(gW,4) + p2_n*mW*pow(gW,4) - p2_n*pow(ml,2)*pow(mW,-1)*pow(gW,4) - 
-      p3_n*mW*pow(gW,4) - p3_n*pow(ml,2)*pow(mW,-1)*pow(gW,4);
-;

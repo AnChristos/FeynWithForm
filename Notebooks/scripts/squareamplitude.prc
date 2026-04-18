@@ -41,13 +41,13 @@ Skip;
 Skip;
 Drop,`Amp',`Amp'C;
 Local   `Mat' = `Amp'*`Amp'C;
-#call SpinSum(`Mat')
-#call Propagators(`Mat')
+#call SpinSum()
+#call Propagators()
 *
 * doTrace
 *
 Skip;
 NSkip `Mat';
-#call doTrace(`Mat')
+#call doTrace()
 
 #endprocedure

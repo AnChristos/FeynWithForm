@@ -1,3 +1,0 @@
-       + pow(s,-2)*pow(alpha,2) * ( 32*pow(u,2)*pow(pi,2) + 32*pow(t,2)*pow(
-         pi,2) );
-;

@@ -1,4 +1,4 @@
-#procedure Propagators(Mat)
+#procedure Propagators()
 *--------------------------------------------------------
 * Procedure: Propagators
 * Description: Do the Propagator replacement

@@ -1,5 +1,0 @@
-       + pow(s,-1)*alpha*pow(gweak,2) * ( 4/( - pow(mZ,2) + s)*pow(u,2)*pow(
-         ca,2)*pi + 4/( - pow(mZ,2) + s)*pow(u,2)*pow(cv,2)*pi - 4/( - pow(
-         mZ,2) + s)*pow(t,2)*pow(ca,2)*pi + 4/( - pow(mZ,2) + s)*pow(t,2)*pow(
-         cv,2)*pi );
-;

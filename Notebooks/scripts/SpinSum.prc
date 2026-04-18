@@ -1,4 +1,4 @@
-#procedure SpinSum(Mat)
+#procedure SpinSum()
 *--------------------------------------------------------
 * Procedure: SpinSum
 * Description: Do the spinSum replacements
