@@ -40,6 +40,7 @@ id k1.k1 = D1 + Melec^2;
 id k1.q  = (D1 - D2shift + q.q)/2;
 .sort;
 
+* Prepeare for Ward identity
 Local WardNum = q(mu1) * Numerator;
 .sort
 * Re-apply the scalar product identity to the new q.k1 terms
@@ -52,6 +53,7 @@ Local BubbleInt=  Numerator * D1^-1 * D2shift^-1;
 .sort
 Drop Numerator, WardNum;
 .sort
+
 * Apply the cancellations
 id D1 * D1^-1 * D2shift^-1 = D2shift^-1;
 id D2shift * D1^-1 * D2shift^-1 = D1^-1;
@@ -85,8 +87,8 @@ Skip WardInt;
 .sort
 
 * Ward identify should be zero 
-* Now we can proceed
 
+* Now we can proceed with PV replacements
 id B1(q.q,Melec,Melec) = -1/2 * B0(q.q,Melec,Melec);
 id B11(q.q,Melec,Melec) = (A0(Melec) - 2*B00(q.q,Melec,Melec)) / (2*Q2);
 id B00(q.q,Melec,Melec) = (A0(Melec) + (2*Melec^2 - Q2/2)*B0(q.q,Melec,Melec)) / (2*(d-1));
@@ -107,19 +109,21 @@ id ( - 2 + 2*d)^-2 = 1/36 * (1 + (4/3)*ep);
 
 * Contract with projector
 Local Pif = PiRaw * (d_(mu1,mu2) - q(mu1)*q(mu2)/Q2) / (d-1);
+* Handle q related terms and e^2
 id q.q = Q2;
 id q^2 = Q2;
 id q^-2 = Q2^-1;
 id e^2 = 4 * pi * alpha;
 .sort
 
-* 4. High Energy Cleanup
+* High Energy Cleanup
 id Melec^2 * Q2^-1 = 0;
 id ep^2 = 0;
 .sort
+
+* Done
 #message ">>>"
 Print +s Pif;
 .sort
-
 
 .end
