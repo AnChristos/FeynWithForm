@@ -1,0 +1,8 @@
+       + pow(alpha,2) * ( 64*pow(t,-2)*pow(pi,2)*pow(Mproton,4) + 32*pow(pi,2)
+          );
+
+      _ +=  + s*pow(alpha,2) * (  - 128*pow(t,-2)*pow(pi,2)*pow(Mproton,2) + 
+         64*pow(t,-1)*pow(pi,2) );
+
+      _ +=  + pow(s,2)*pow(alpha,2) * ( 64*pow(t,-2)*pow(pi,2) );
+;

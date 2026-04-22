@@ -15,14 +15,14 @@ Vector n, x, y;
 
 * unpolarized
 Local M =   (gW^2/2) * UB(i1, p2, ml) 
-            *  (g(i1, i3, mu1)-g(i1, i2, k5) * g(i2, i3, mu1))  
-            * V(i3, p3, 0) * epsM(mu1,q,mW);
+            *  (gamma(i1, i3, mu1)-gamma(i1, i2, k5) * gamma(i2, i3, mu1))  
+            *  V(i3, p3, 0) * esumM(mu1,q,mW);
 #call squareamplitude(M, Msq)
 multiply 1/3;
 .sort
 
 * polarized
-Local MNoPol =  (gW^2/2) * UB(i1, p2, ml) *  (g(i1, i3, mu1)-g(i1, i2, k5) * g(i2, i3, mu1))  * V(i3, p3, 0) ;
+Local MNoPol =  (gW^2/2) * UB(i1, p2, ml) *  (gamma(i1, i3, mu1)-gamma(i1, i2, k5) * gamma(i2, i3, mu1))  * V(i3, p3, 0) ;
 #call squareamplitude(MNoPol, MsqNoPol)
 .sort
 *-------------------------------------------------------------------------*

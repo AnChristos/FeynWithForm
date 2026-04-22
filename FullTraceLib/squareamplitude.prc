@@ -11,38 +11,46 @@
 Skip;
 NSkip `Amp';
 #$imax = 0;
-#do i = 1,`IMAX'
-    if ( match(VB(i`i',?a)) || match(V(i`i',?a))
-         || match(UB(i`i',?a)) || match(U(i`i',?a))
-         || match(g(i`i',?a)) || match(g(i?,i`i',?a))
-         || match(fprop(i`i',?a)) || match(fprop(i?,i`i',?a)) );
-            $imax = `i';
+#do ii = 1,`IMAX'
+    if ( match(VB(i`ii',?a))    || match(V(i`ii',?a))
+         || match(UB(i`ii',?a)) || match(U(i`ii',?a))
+         || match(gamma(i`ii',?a)) || match(gamma(i?,i`ii',?a))
+         || match(fprop(i`ii',?a)) || match(fprop(i?,i`ii',?a)) );
+            $imax = `ii';
     endif;
 #enddo
 #$mumax = 0;
-#do mu = 1,`MUMAX'
-    if ( match(g(?a,mu`mu')) 
-         || match(phprop(mu`mu',?a)) || match(phprop(mu?,mu`mu',?a)) 
-         || match(Zprop(mu`mu',?a)) || match(Zprop(mu?,mu`mu',?a))
-         || match(Wprop(mu`mu',?a)) || match(Wprop(mu?,mu`mu',?a)) );
-        $mumax = `mu';
+#do jj = 1,`MUMAX'
+    if ( match(gamma(?a,mu`jj')) 
+         || match(phprop(mu`jj',?a)) || match(phprop(mu?,mu`jj',?a)) 
+         || match(Zprop(mu`jj',?a)) || match(Zprop(mu?,mu`jj',?a))
+         || match(Wprop(mu`jj',?a)) || match(Wprop(mu?,mu`jj',?a)) );
+        $mumax = `jj';
     endif;
 #enddo
 .sort:amplitude-counter;
+
 *
 *   Now construct the conjugate
 *
 Skip;
 #call conjugate(`Amp',`Amp'C, `$imax', `$mumax');
 .sort:amplitude-conjugate;
+
 *
 *   Now multiply Amp and AmpC to get the matrix element squared.
 *
 Skip;
 Drop,`Amp',`Amp'C;
 Local   `Mat' = `Amp'*`Amp'C;
+
+*
+* Handle spin sum and propagators
+*
+
 #call SpinSum()
 #call Propagators()
+
 *
 * doTrace
 *

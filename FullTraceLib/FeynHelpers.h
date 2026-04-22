@@ -1,7 +1,6 @@
 *-------------------------------------------------------------------------*
 * FeynHelpers.h
 * Defines global symbols for the procedures and routines
-* We "reserve" those
 *-------------------------------------------------------------------------*
 #-
 * --- Symbol Limits ---
@@ -20,19 +19,41 @@
     #define MAXVEC "10"      
 #endif
 
-* --- Explicit Declarations ---
-Index mu1, ..., mu`MUMAX2';
-Index i1, ..., i`IMAX2';
-Index mu, i, k5=0, k6=0, k7=0;
 
+* Space-time indices
+Index mu, mu1, ..., mu`MUMAX2';
+
+* Spinor Indices
+Index i, i1, ..., i`IMAX2';
+
+* Special indices for gamma5
+*(1+gamma5/2)   (1-gamma5/2) 
+Index k5=0, k6=0, k7=0;
+
+* Four vector indices
 Vector p, p1, ..., p`MAXVEC';
-Vector k, q, q1, q2, q3;
+* Auxiliary vector indices
+Vector q;
 
-Symbols m, m1, ..., m`MAXVEC';
-Symbols s, t, u, cv, ca;
+* Mass
+Symbols m;
 
-CF UB, U, VB, V, g, eps, epsM, 
+* Mandelstam
+Symbols s, t, u;
+
+* V-A 
+Symbol cv, ca;
+
+* Spinors
+CF UB, U, VB, V;
+
+* propagators
 CF fprop, phprop, Zprop, Wprop, prop;
 
+* Gamma Matrices
+CF gamma;
+
+* polarization sum
+CF esum, esumM; 
 #+
 

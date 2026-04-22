@@ -67,18 +67,15 @@ of the earliest programs designed for high-energy physics calculations.
 ## Conventions for Amplitude Calculations
 
 ### Gamma Matrix Notation
-
-| Term                       | FORM Notation                    | Mathematical Equivalent                          |
+| Term                       | Internal Notation                    | Mathematical Equivalent                          |
 | :------------------------- | :------------------------------- | :----------------------------------------------- |
-| **Unit  Matrix**           | `g(i1, i2)`                      | $(I)_{i1 i2}$                                       |
-| **Gamma Matrix**           | `g(i1, i2, mu)`                  | $(\gamma^\mu)_{i1 i2}$                              |
-| **Slash Momentum**         | `g(i1, i2, p_i)`                 | $(\not{p_i})_{i1 i2}$                               |
-| **Gamma 5 ($\gamma^5$)**   | `g(i1, i2, k5)`                  | $(\gamma^5)_{i1 i2}$                                |
-| **Left-Handed Projector**  | `1/2 *g(i1, i2, k7)`             | $\left(\frac{1 - \gamma^5}{2}\right)_{i1 i2}$       |
-| **Right-Handed Projector** | `1/2 * g(i1, i2, k6)`            | $\left(\frac{1 + \gamma^5}{2}\right)_{i1 i2}$       |
-| **V−A Coupling**           | `1/2 * ((cv+ca)*g(i1,i2,k7) + (cv-ca)*g(i1,i2,k6))` | $(c_V - c_A \gamma^5)_{i1 i2}$   |
-
-
+| **Unit Matrix**            | `gamma(i1, i2)`                                               | $(I)^{i_1}{}_{i_2}$ |
+| **Gamma Matrix**           | `gamma(i1, i2, mu)`                                  | $(\gamma^\mu)^{i_1}{}_{i_2}$ |
+| **Slash Momentum**         | `gamma(i1, i2, p_i)`                              | $(\slashed{p}_i)^{i_1}{}_{i_2}$ |
+| **Gamma 5 ($\gamma^5$)**   | `gamma(i1, i2, k5)`                                    | $(\gamma^5)^{i_1}{}_{i_2}$ |
+| **Left-Handed Projector**  | `1/2 * gamma(i1, i2, k7)`     | $\left(\frac{1 - \gamma^5}{2}\right)^{i_1}{}_{i_2}$ |
+| **Right-Handed Projector** | `1/2 * gamma(i1, i2, k6)`            | $\left(\frac{1 + \gamma^5}{2}\right)^{i_1}{}_{i_2}$ |
+| **V−A Coupling**           | `1/2 * ((cv+ca)*g(i1,i2,k7) + (cv-ca)*g(i1,i2,k6))` | $(c_V - c_A \gamma^5)^{i_1}{}_{i_2}$ |
 
 ### External Lines
 
@@ -86,26 +83,26 @@ of the earliest programs designed for high-energy physics calculations.
 - **Incoming fermion ($u$)**: `U(i1, p1, m)` → $u_a(p_1, m)$  
 - **Outgoing anti-fermion ($v$)**: `V(i1, p1, m)` → $v_a(p_1, m)$  
 - **Incoming anti-fermion ($\bar{v}$)**: `VB(i1, p1, m)` → $\bar{v}_a(p_1, m)$  
-- **Massless Vector polarization ($\epsilon$)**: `eps(mu1, p1)` → $\epsilon_\mu(p_1)$  
-- **Massive Vector polarization ($\epsilon$)**: `epsM(mu1, p1 , m)` → $\epsilon_\mu(p_1, m)$  
+- **Massless Vector polarization ($\epsilon$)**: `esum(mu1, p1)` → $\epsilon_\mu(p_1)$  
+- **Massive Vector polarization ($\epsilon$)**: `esumM(mu1, p1 , m)` → $\epsilon_\mu(p_1, m)$  
 
 
 
 ### Polarization sums
 ```
-U(i1?,p?,m?) * UB(i2?,p?,m?) =  g(i1,i2,p) + g(i1,i2)*m;
+U(i1?,p?,m?) * UB(i2?,p?,m?) =  gamma(i1,i2,p) + gamma(i1,i2)*m;
 ```
 
 ```
-V(i1?,p?,m?) * VB(i2?,p?,m?) =  g(i1,i2,p) - g(i1,i2)*m;
+V(i1?,p?,m?) * VB(i2?,p?,m?) =  gamma(i1,i2,p) - gamma(i1,i2)*m;
 ```
 
 ```
-eps(mu1?,p?) * eps(mu2?,p?) = -d_(mu1,mu2);
+esum(mu1?,p?) * esum(mu2?,p?) = -d_(mu1,mu2);
 ```
 
 ```
-epsM(mu1?, p?, m?) * epsM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
+esumM(mu1?, p?, m?) * esumM(mu2?, p?, m?) = -d_(mu1,mu2) + p(mu1)*p(mu2)/(m^2);
 
 ```
 ### Propagators

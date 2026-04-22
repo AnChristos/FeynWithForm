@@ -10,9 +10,9 @@ Off FinalStats;
 * Physical constants
 Symbols e, pi, alpha, x;
 
-Local M = (e^2) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) 
+Local M = (e^2) * (VB(i1, p2, 0) * gamma(i1, i2, mu1) * U(i2, p1, 0)) 
                 *  phprop(mu1, mu2, q)  
-                * (UB(i3, p3, 0) * g(i3, i4, mu2) * V(i4, p4, 0));
+                * (UB(i3, p3, 0) * gamma(i3, i4, mu2) * V(i4, p4, 0));
 #call squareamplitude(M, Msq)
 .sort
 * Spin averaging (1/2 * 1/2)
@@ -29,7 +29,6 @@ endrepeat;
 
 * Kinematics 
 #call Mandelstam2To2(p1,p2,p3,p4,0,0,0,0)
-
 
 bracket alpha, s;
 .sort

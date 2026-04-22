@@ -8,14 +8,15 @@ Off FinalStats;
 
 * constants
 Symbols me, e, pi, alpha, x;
+Vectors q1, q2 ;
 
-Local Ms = (e^2) * UB(i1, p3, me) * g(i1, i2, mu2) * eps(mu1, p2) 
+Local Ms = (e^2) * UB(i1, p3, me) * gamma(i1, i2, mu2) * esum(mu1, p2) 
                  * fprop(i2, i3, q1, me) 
-                 * g(i3, i4, mu1) * U(i4, p1, me) * eps(mu2, p4);
+                 * gamma(i3, i4, mu1) * U(i4, p1, me) * esum(mu2, p4);
 
-Local Mu = (e^2) * UB(i1, p3, me) * g(i1, i2, mu1) * eps(mu1, p2)
+Local Mu = (e^2) * UB(i1, p3, me) * gamma(i1, i2, mu1) * esum(mu1, p2)
                  * fprop(i2, i3, q2 , me) 
-                 * g(i3, i4, mu2) * U(i4, p1, me) * eps(mu2, p4);
+                 * gamma(i3, i4, mu2) * U(i4, p1, me) * esum(mu2, p4);
 
 
 Local Mtot = Ms + Mu;

@@ -11,7 +11,7 @@ Symbols  ml, mpi;
 Vector pPion;
 
 * This should be multiplied by a constant which I ommit here.
-Local M =  UB(i1, p3, ml) *  g(i1, i2, k7) * g(i2, i3, mu1) * V(i3, p4, 0)  * pPion(mu1);
+Local M =  UB(i1, p3, ml) *  gamma(i1, i2, k7) * gamma(i2, i3, mu1) * V(i3, p4, 0)  * pPion(mu1);
 
 #call squareamplitude(M, Msq)
 .sort

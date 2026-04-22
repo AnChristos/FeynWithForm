@@ -16,8 +16,8 @@ CF  A, A0, B, B0, B00, B1, B11, log;
 
 
 Local Bubble = (-e^2) 
-             * g(i1, i2, mu1) * fprop(i2, i3, k1, Melec) 
-             * g(i3, i4, mu2) * fprop(i4, i1, k2, Melec);
+             * gamma(i1, i2, mu1) * fprop(i2, i3, k1, Melec) 
+             * gamma(i3, i4, mu2) * fprop(i4, i1, k2, Melec);
 #call Propagators()
 #call doTrace(1,0)
 .sort;

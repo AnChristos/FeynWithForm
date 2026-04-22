@@ -10,9 +10,9 @@ Off FinalStats;
 * Physical constants
 Symbols e, pi, alpha, Mass, x;
 
-Local M = (e^2) * (VB(i1, p2, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) 
+Local M = (e^2) * (VB(i1, p2, 0) * gamma(i1, i2, mu1) * U(i2, p1, 0)) 
                 * phprop(mu1, mu2, q)   
-                * (UB(i3, p3, Mass) * g(i3, i4, mu2) * V(i4, p4, Mass));
+                * (UB(i3, p3, Mass) * gamma(i3, i4, mu2) * V(i4, p4, Mass));
 #call squareamplitude(M, Msq)
 .sort
 

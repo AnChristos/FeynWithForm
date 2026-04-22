@@ -10,9 +10,9 @@ Off FinalStats;
 
 Symbols e, pi, alpha, Mproton, x;
 
-Local M =     (e^2) * (UB(i1, p3, 0) * g(i1, i2, mu1) * U(i2, p1, 0)) 
+Local M =     (e^2) * (UB(i1, p3, 0) * gamma(i1, i2, mu1) * U(i2, p1, 0)) 
                     * phprop(mu1, mu2, q)  
-                    * (UB(i3, p4, Mproton) * g(i3, i4, mu2) * U(i4, p2, Mproton));
+                    * (UB(i3, p4, Mproton) * gamma(i3, i4, mu2) * U(i4, p2, Mproton));
 
 Local Mscalar = (e^2) * (p1(mu1) + p3(mu1)) 
                       * phprop(mu1, mu2, q) 
