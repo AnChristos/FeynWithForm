@@ -27,7 +27,7 @@ id pPion.p4 = (mpi^2 - ml^2)/2;
 
 * Save to file 
 Format C;
-#write <PionDecay.txt> "%e;", Msq;
+#write <../Results/PionDecay.txt> "%e;", Msq;
 .sort
 * Print 
 Format;

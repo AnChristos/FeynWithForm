@@ -70,10 +70,10 @@ id q.p3 = (mW^2 - ml^2)/2;
 
 * Save to file 
 Format C;
-#write <WDecay.txt> "%e;", Msq;
-#write <WDecayPolZ.txt> "%e;", MsqPolZ;
-#write <WDecayPolL.txt> "%e;", MsqPolL;
-#write <WDecayPolR.txt> "%e;", MsqPolR;
+#write <../Results/WDecay.txt> "%e;", Msq;
+#write <../Results/WDecayPolZ.txt> "%e;", MsqPolZ;
+#write <../Results/WDecayPolL.txt> "%e;", MsqPolL;
+#write <../Results/WDecayPolR.txt> "%e;", MsqPolR;
 .sort
 * Print 
 Format;

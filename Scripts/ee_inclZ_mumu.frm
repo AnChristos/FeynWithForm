@@ -55,9 +55,9 @@ Bracket s, alpha, gweak;
 .sort
 * Save
 Format C;
-#write <ee_incl_mumu_QED.txt> "%e;", MsqQED;
-#write <ee_incl_mumu_Int.txt> "%e;", MsqInt;
-#write <ee_incl_mumu_Z.txt> "%e;", MsqZ;
+#write <../Results/ee_incl_mumu_QED.txt> "%e;", MsqQED;
+#write <../Results/ee_incl_mumu_Int.txt> "%e;", MsqInt;
+#write <../Results/ee_incl_mumu_Z.txt> "%e;", MsqZ;
 .sort
 
 * Print

@@ -1,0 +1,2 @@
+pow(mW,2)*pow(gW,4) - pow(ml,2)*pow(gW,4) + 4*p2_n*p3_n*pow(gW,4);
+;

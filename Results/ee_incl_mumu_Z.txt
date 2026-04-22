@@ -1,0 +1,8 @@
+       + pow(gweak,4) * ( 1./8./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*pow(u,2)
+         *pow(ca,4) + 3./4./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*pow(u,2)*
+         pow(cv,2)*pow(ca,2) + 1./8./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*
+         pow(u,2)*pow(cv,4) + 1./8./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*pow(
+         t,2)*pow(ca,4) - 1./4./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*pow(t,2)
+         *pow(cv,2)*pow(ca,2) + 1./8./( - pow(mZ,2) + s)/( - pow(mZ,2) + s)*
+         pow(t,2)*pow(cv,4) );
+;

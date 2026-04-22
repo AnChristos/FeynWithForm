@@ -48,7 +48,7 @@ id t = 2*me^2 - s - u;
 Bracket s, alpha, pi ;
 * Save
 Format C;
-#write <Compton.txt> "%e;", Msq;
+#write <../Results/Compton.txt> "%e;", Msq;
 .sort
 
 * Print

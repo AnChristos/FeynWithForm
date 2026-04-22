@@ -1,0 +1,6 @@
+       + pow(s,-2)*pow(alpha,2) * ( 64*pow(pi,2)*pow(Mass,4) - 64*u*pow(pi,2)*
+         pow(Mass,2) + 32*pow(u,2)*pow(pi,2) - 64*t*pow(pi,2)*pow(Mass,2) + 32
+         *pow(t,2)*pow(pi,2) );
+
+      _ +=  + pow(s,-1)*pow(alpha,2) * ( 64*pow(pi,2)*pow(Mass,2) );
+;
