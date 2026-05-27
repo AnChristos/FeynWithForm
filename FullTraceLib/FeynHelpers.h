@@ -57,6 +57,6 @@ CF fprop, phprop, Zprop, Wprop, prop;
 CF gamma;
 
 * polarization sum
-CF esum, esumM, eTL, eTR, eL; 
+CF esum, esumM, VpolZ, VpolR, VpolL; 
 #+
 
