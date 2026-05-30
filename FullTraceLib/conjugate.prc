@@ -11,14 +11,14 @@ L   `AmpC' = `Amp';
 id  i_ = -i_;
 
 *   Make a new set of dummy indices above $imax and $mumax.
-#do i = 1, `$imax'
-    #$ioffset = `$imax' + `i';
-    Multiply replace_(i`i', i`$ioffset');
+#do j = 1, `$imax'
+    #$ioffset = `$imax' + `j';
+    Multiply replace_(i`j', i`$ioffset');
 #enddo
 
-#do mu = 1, `$mumax'
-    #$muoffset = `$mumax' + `mu';
-    Multiply replace_(mu`mu', mu`$muoffset');
+#do j = 1, `$mumax'
+    #$muoffset = `$mumax' + `j';
+    Multiply replace_(mu`j', mu`$muoffset');
 #enddo
 
 * Exchange rows/columns (Transpose)
